@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Dfc" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="67ecbc56-c105-4282-b88f-14eb61d5c5ce">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="NOME_FANTASIA" class="java.lang.String"/>
+	<parameter name="RAZAO_SOCIAL" class="java.lang.String"/>
+	<parameter name="LOGO_EMPRESA" class="java.awt.Image"/>
+	<parameter name="NOME_SOFTWARE_HOUSE" class="java.lang.String"/>
+	<field name="classificacao" class="java.lang.String"/>
+	<field name="descricao" class="java.lang.String"/>
+	<field name="valor" class="java.math.BigDecimal"/>
+	<field name="dfc" class="java.lang.String"/>
+	<variable name="INVESTIMENTO" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{dfc}.equals("I") ? $F{valor} : BigDecimal.ZERO]]></variableExpression>
+		<initialValueExpression><![CDATA[BigDecimal.ZERO]]></initialValueExpression>
+	</variable>
+	<variable name="FINANCIAMENTO" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{dfc}.equals("F") ? $F{valor} : BigDecimal.ZERO]]></variableExpression>
+		<initialValueExpression><![CDATA[BigDecimal.ZERO]]></initialValueExpression>
+	</variable>
+	<variable name="OPERACIONAL" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{dfc}.equals("O") ? $F{valor} : BigDecimal.ZERO]]></variableExpression>
+		<initialValueExpression><![CDATA[BigDecimal.ZERO]]></initialValueExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="120" splitType="Stretch">
+			<textField>
+				<reportElement x="150" y="40" width="405" height="40" uuid="8875a15a-239d-4163-9781-5d407a3a4f35"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{RAZAO_SOCIAL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="150" y="0" width="405" height="40" uuid="1cab66e8-913b-470e-8976-a0c3a5039ae5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{NOME_FANTASIA}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="0" y="0" width="150" height="120" uuid="96e78403-1bcd-42ed-bff8-772b1d972f55"/>
+				<imageExpression><![CDATA[$P{LOGO_EMPRESA}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="150" y="80" width="405" height="40" uuid="e390d65c-7b64-4bf7-bf6d-3497073ef10f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Demonstração do Fluxo de Caixa]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="76" y="0" width="160" height="30" uuid="b99aa121-7d28-4170-b673-f63c7daa5719"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Classificação]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="0" width="74" height="30" uuid="aa853948-7997-43f1-b2bf-355649f2a1f4"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Atividade]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="236" y="0" width="234" height="30" uuid="14277252-a547-47dd-97a4-65a7336bcd15"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Descrição]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="470" y="0" width="85" height="30" uuid="13e25818-5c9c-4575-815f-78e9dfc186bf"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Valor]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="76" y="0" width="160" height="20" uuid="a6b802eb-5426-4b00-a4ee-514db99fe542"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{classificacao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2" y="0" width="74" height="20" uuid="5b889aab-738f-454c-aee6-50b9a1e2f590"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{dfc}.equals("F") ? "Financiamento" :
+$F{dfc}.equals("I") ? "Investimento" :
+$F{dfc}.equals("O") ? "Operacional" :
+"Desconhecido"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="236" y="0" width="234" height="20" uuid="0ddc9928-58f5-4651-8950-c45d95fc88cc"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{descricao}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;-#,##0.00">
+				<reportElement x="470" y="0" width="85" height="20" uuid="48ab6118-3b04-49ff-9ad1-376af7df3fb7"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{valor}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="60" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy HH.mm.ss">
+				<reportElement x="0" y="20" width="150" height="20" uuid="7b036729-c880-4bb0-9946-49b0471f22ed"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="277" y="40" width="278" height="20" uuid="ae5b3cd8-9c72-4e26-804e-733795b81498"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Desenvolvido por " + $P{NOME_SOFTWARE_HOUSE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="435" y="20" width="80" height="20" uuid="2d69d758-0482-43b5-aa3d-0cd406a84c90"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="515" y="20" width="40" height="20" uuid="83653f21-f747-4fae-849d-62d0710a2ed3"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;-#,##0.00">
+				<reportElement x="87" y="0" width="85" height="20" uuid="f60526cb-7740-4f19-82cc-6e40fe29df25"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{FINANCIAMENTO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="2" y="0" width="85" height="20" uuid="02c1bc35-1506-4868-95e0-3cb3c09e2ea3"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Financimento:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="192" y="0" width="85" height="20" uuid="9845ba70-0922-4eb1-8191-2769ed6f86e3"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Investimento:]]></text>
+			</staticText>
+			<textField pattern="#,##0.00;-#,##0.00">
+				<reportElement x="277" y="0" width="85" height="20" uuid="94a64900-7f63-42f1-914e-b54d046bceea"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{INVESTIMENTO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="385" y="0" width="85" height="20" uuid="345b4cd1-584e-414c-8947-6e2b4c179d1a"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Operacional:]]></text>
+			</staticText>
+			<textField pattern="#,##0.00;-#,##0.00">
+				<reportElement x="470" y="0" width="85" height="20" uuid="edecabc4-b2e3-493b-8938-f037eb112794"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{OPERACIONAL}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

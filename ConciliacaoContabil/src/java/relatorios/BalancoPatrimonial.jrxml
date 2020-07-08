@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="BalancoPatrimonial" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b7f8c045-35ea-49e3-82c1-2ddf09ac5732">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="NOME_FANTASIA" class="java.lang.String"/>
+	<parameter name="RAZAO_SOCIAL" class="java.lang.String"/>
+	<parameter name="LOGO_EMPRESA" class="java.awt.Image"/>
+	<parameter name="NOME_SOFTWARE_HOUSE" class="java.lang.String"/>
+	<parameter name="ANO_ANTERIOR" class="java.lang.String"/>
+	<parameter name="ANO_ATUAL" class="java.lang.String"/>
+	<field name="descricao" class="java.lang.String"/>
+	<field name="classificacao" class="java.lang.String"/>
+	<field name="anoAnterior" class="java.math.BigDecimal"/>
+	<field name="anoAtual" class="java.math.BigDecimal"/>
+	<variable name="TOTAL_ATUAL" class="java.math.BigDecimal" resetType="Group" resetGroup="GrupoClassificacao" calculation="Sum">
+		<variableExpression><![CDATA[$F{anoAtual}]]></variableExpression>
+	</variable>
+	<variable name="TOTAL_ANTERIOR" class="java.math.BigDecimal" resetType="Group" resetGroup="GrupoClassificacao" calculation="Sum">
+		<variableExpression><![CDATA[$F{anoAnterior}]]></variableExpression>
+	</variable>
+	<group name="GrupoClassificacao" isStartNewPage="true">
+		<groupExpression><![CDATA[$F{classificacao}.startsWith("1")]]></groupExpression>
+	</group>
+	<title>
+		<band height="120" splitType="Stretch">
+			<textField>
+				<reportElement x="150" y="40" width="405" height="40" uuid="09fef010-cb36-43a8-9758-ff15a39b3027"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{RAZAO_SOCIAL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="150" y="0" width="405" height="40" uuid="553b599b-98b0-4053-b19c-0ffbb597bedb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{NOME_FANTASIA}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="0" y="0" width="150" height="120" uuid="e6981363-19d0-4c5a-8144-b30881811888"/>
+				<imageExpression><![CDATA[$P{LOGO_EMPRESA}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="150" y="80" width="405" height="40" uuid="a113233e-3718-47dc-bfa5-83b7529dda47"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Balanço Patrimonial]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="92" y="0" width="269" height="30" uuid="d17e9562-ccb7-4e2c-8455-162c97c3f0a7"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Descrição]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="0" width="90" height="30" uuid="342f1a64-7f9a-4532-aa6c-9a6a4208b9f1"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Classificação]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="361" y="0" width="97" height="30" uuid="a7242bd1-aafe-4164-9d20-20d9678487bb"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{ANO_ANTERIOR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="458" y="0" width="97" height="30" uuid="3da3fa89-129c-4a43-a36a-b285d7cd8187"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{ANO_ATUAL}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="92" y="0" width="269" height="20" uuid="325f0abb-36cd-41e0-9837-ab068de446d4"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{descricao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2" y="0" width="90" height="20" uuid="674673c0-c877-4862-96dd-568cf669f666"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{classificacao}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;-#,##0.00">
+				<reportElement x="361" y="0" width="97" height="20" uuid="6045ab38-eb4b-4613-b542-ea9dde1fbf54"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{anoAnterior}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;-#,##0.00">
+				<reportElement x="458" y="0" width="97" height="20" uuid="da0cd642-bfb4-496b-b1e7-9cbfa5b8a613"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{anoAtual}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="60" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy HH.mm.ss">
+				<reportElement x="0" y="20" width="150" height="20" uuid="0b8bb4b8-3f2c-49f5-bab2-1d0853c5aaca"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="277" y="40" width="278" height="20" uuid="42c8546e-d4e0-4bc1-b418-422ef7a0dc7c"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Desenvolvido por " + $P{NOME_SOFTWARE_HOUSE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="435" y="20" width="80" height="20" uuid="c6fa91e5-675d-45e0-921c-3325954ee16d"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="515" y="20" width="40" height="20" uuid="716e5112-0ff7-444a-96a5-af636ca20b82"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="171" y="0" width="90" height="20" uuid="1568e906-495f-441f-a6a8-85fe6a1bfa63"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Anterior:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="376" y="0" width="90" height="20" uuid="bec2268f-d5c0-4f8c-a6a4-628a68074031"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Atual:]]></text>
+			</staticText>
+			<textField pattern="#,##0.00;-#,##0.00">
+				<reportElement x="261" y="0" width="89" height="20" uuid="cacd83ce-2d25-4db5-afcd-4e398c1d92c8"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{TOTAL_ANTERIOR}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;-#,##0.00">
+				<reportElement x="466" y="0" width="89" height="20" uuid="16755f71-540a-4781-a882-a411b1a1d1ce"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{TOTAL_ATUAL}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

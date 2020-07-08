@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="GeradorEtiqueta" default="default" basedir=".">
+    <description>construção do projeto T2Ti ERP.</description>
+    <import file="nbproject/build-impl.xml"/>
+
+    <!--
+    essa target vai invocar:
+        signlib - para assinar os jars que compõem a aplicação do cliente
+        t2tierp - para montar o pacote necessario para a aplicação que desce
+                  para o cliente
+    -->
+    <target name="-post-compile" depends="signlib, t2tierp">
+        <echo>Executando target '-post-compile'</echo>
+    </target>
+    
+    
+    <!-- assina os jars que compõem a aplicação do cliente -->
+    <target name="signlib" description="Assina os JARs">
+        <echo>Executando target 'signlib'</echo>
+        <mkdir dir="${build}/${signedlib}"/>
+        <copy todir="${build}/${signedlib}">
+            <fileset dir="${lib}/openswing">
+                <include name="iText-2.1.7.jar" />
+                <include name="clientos.jar" />
+                <include name="commonos.jar" />
+                <include name="jcalendar.jar" />
+                <include name="jnlp.jar" />
+                <include name="hessian-3.1.6.jar" />
+                <include name="log4j-1.2.7.jar" />
+            </fileset>
+            <fileset dir="${lib}/liquidnf">
+                <include name="liquidlnf.jar" />
+            </fileset>
+            <fileset dir="${lib}/jasper">
+                <include name="commons-beanutils-1.8.2.jar" />
+                <include name="commons-digester-1.7.jar" />
+                <include name="commons-logging-1.1.jar" />
+                <include name="commons-collections-3.2.1.jar" />
+                <include name="jasper-compiler-jdt-5.5.23.jar" />
+            </fileset>
+            <fileset dir="${lib}/jasper/5.6.0">
+                <include name="jasperreports-5.6.0.jar" />
+            </fileset>
+            <fileset dir="${lib}/zxing">
+                <include name="zxing_javase.jar" />
+                <include name="zxing-core.jar" />
+            </fileset>
+        </copy>
+        <echo>${alias}</echo>
+        <echo>${storepass}</echo>
+        <echo>${keystore}</echo>
+        
+        <signjar
+            alias="${alias}" keystore="${keystore}"
+            storepass="${storepass}"
+            tsaurl="https://timestamp.geotrust.com/tsa">
+          <path>
+            <fileset dir="${build}/${signedlib}/" includes="*.jar" />
+          </path>
+        </signjar>        
+        
+    </target>
+
+    <target name="t2tierp">
+        <echo>Executando a target 't2tierp'</echo>
+
+        <echo>Procedimentos para criação do T2TiERPCliente.jar</echo>
+        <mkdir dir="${tmp}" />
+        <copy todir="${web.docbase.dir}">
+            <fileset dir="${build}/${signedlib}">
+                <include name="*.jar" />
+            </fileset>
+        </copy>
+
+        <copy todir="${tmp}/com/t2tierp/cadastros/java">
+            <fileset dir="${build.classes.dir}/com/t2tierp/cadastros/java">
+                <include name="*.*" />
+            </fileset>
+        </copy>
+
+        <copy todir="${tmp}/com/t2tierp/geradoretiqueta/cliente">
+            <fileset dir="${build.classes.dir}/com/t2tierp/geradoretiqueta/cliente">
+                <include name="*.*" />
+            </fileset>
+        </copy>
+
+        <copy todir="${tmp}/com/t2tierp/geradoretiqueta/java">
+            <fileset dir="${build.classes.dir}/com/t2tierp/geradoretiqueta/java">
+                <include name="*.*" />
+            </fileset>
+        </copy>
+
+        <copy todir="${tmp}/com/t2tierp/padrao/cliente">
+            <fileset dir="${build.classes.dir}/com/t2tierp/padrao/cliente">
+                <include name="*.*" />
+            </fileset>
+        </copy>
+
+        <copy todir="${tmp}/com/t2tierp/padrao/java">
+            <fileset dir="${build.classes.dir}/com/t2tierp/padrao/java">
+                <include name="*.*" />
+            </fileset>
+        </copy>
+
+        <copy todir="${tmp}/com/t2tierp/tributacao/java">
+            <fileset dir="${build.classes.dir}/com/t2tierp/tributacao/java">
+                <include name="*.*" />
+            </fileset>
+        </copy>
+
+        <copy todir="${tmp}/images">
+            <fileset dir="${build.classes.dir}/images">
+                <include name="*.*" />
+            </fileset>
+        </copy>
+
+        <copy todir="${tmp}/">
+            <fileset dir="${build.classes.dir}/">
+                <include name="Resources_*.xml" />
+            </fileset>
+        </copy>
+
+        <jar jarfile="${tmp}/T2TiERPCliente.jar" basedir="${tmp}" manifest="manifest.txt"/>
+        <signjar jar="${tmp}/T2TiERPCliente.jar" alias="${alias}"
+                 storepass="${storepass}" keystore="${keystore}" tsaurl="https://timestamp.geotrust.com/tsa"/>
+
+        <copy todir="${web.docbase.dir}">
+            <fileset dir="${tmp}">
+                <include name="T2TiERPCliente.jar" />
+            </fileset>
+        </copy>
+        <delete dir="${tmp}" />
+
+    </target>
+    
+    <target name="-post-clean">
+        <delete>
+            <fileset dir="${web.docbase.dir}/" >
+                <include name="*.jar" />
+            </fileset>
+        </delete>
+    </target>
+
+</project>

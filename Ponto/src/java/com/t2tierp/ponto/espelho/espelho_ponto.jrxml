@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="espelho_ponto" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a768fc55-9c69-42f2-b4cb-16c32828bf94">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Documents and Settings\\T2Ti\\Meus documentos\\NetBeansProjects\\PontoEletronico\\branches\\Cliente\\src\\relatorios\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="DATA_INICIO" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="DATA_FIM" class="java.util.Date"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="nomeEmpregador" class="java.lang.String">
+		<fieldDescription><![CDATA[nomeEmpregador]]></fieldDescription>
+	</field>
+	<field name="dataEmissaoRelatorio" class="java.util.Date">
+		<fieldDescription><![CDATA[dataEmissaoRelatorio]]></fieldDescription>
+	</field>
+	<field name="pisEmpregado" class="java.lang.String">
+		<fieldDescription><![CDATA[pisEmpregado]]></fieldDescription>
+	</field>
+	<field name="dataAdmissao" class="java.util.Date">
+		<fieldDescription><![CDATA[dataAdmissao]]></fieldDescription>
+	</field>
+	<field name="listaPeriodo" class="java.util.List">
+		<fieldDescription><![CDATA[listaPeriodo]]></fieldDescription>
+	</field>
+	<field name="listaHorarios" class="java.util.List">
+		<fieldDescription><![CDATA[listaHorarios]]></fieldDescription>
+	</field>
+	<field name="ederecoEmpregador" class="java.lang.String">
+		<fieldDescription><![CDATA[ederecoEmpregador]]></fieldDescription>
+	</field>
+	<field name="nomeEmpregado" class="java.lang.String">
+		<fieldDescription><![CDATA[nomeEmpregado]]></fieldDescription>
+	</field>
+	<field name="cnpjEmpregador" class="java.lang.String">
+		<fieldDescription><![CDATA[cnpjEmpregador]]></fieldDescription>
+	</field>
+	<title>
+		<band height="123" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="23" uuid="effa676b-3ce1-41d9-a7ab-b7f53474f8e2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Relatório Espelho de Ponto Eletrônico]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="23" width="110" height="20" uuid="1c325c6e-e82d-45fd-87e6-1c4f2f3e5f9d"/>
+				<box>
+					<topPen lineWidth="0.25" lineStyle="Solid"/>
+					<leftPen lineWidth="0.25" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Empregador:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="63" width="110" height="20" uuid="ecb76430-ddcf-4682-8ea3-511ecd328b07"/>
+				<box>
+					<leftPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Empregado:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="43" width="110" height="20" uuid="8da8b7bb-30eb-43ae-aa40-03edf378f962"/>
+				<box>
+					<leftPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Endereço:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="83" width="110" height="20" uuid="c68530f9-75b9-4282-b00c-60216139dae1"/>
+				<box>
+					<leftPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data Admissão:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="103" width="110" height="20" uuid="7ebedf22-4f1c-4a84-b14a-b10ad94b8606"/>
+				<box>
+					<leftPen lineWidth="0.25" lineStyle="Solid"/>
+					<bottomPen lineWidth="0.25" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Relatório emitido em:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="110" y="23" width="445" height="20" uuid="5f2409af-308a-48f5-ab3a-619d31b335e1"/>
+				<box>
+					<topPen lineWidth="0.25" lineStyle="Solid"/>
+					<rightPen lineWidth="0.25" lineStyle="Solid"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nomeEmpregador}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="43" width="445" height="20" uuid="004b7cc5-7843-49bf-a3fa-46fddfc7040d"/>
+				<box>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ederecoEmpregador}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="63" width="445" height="20" uuid="c7fe1ed3-0df7-499f-be96-871a591cc05d"/>
+				<box>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pisEmpregado} + " - " + $F{nomeEmpregado}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="110" y="83" width="445" height="20" uuid="7803999d-4a76-47d2-a62b-07c3eb5ecb7c"/>
+				<box>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dataAdmissao}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="111" y="103" width="444" height="20" uuid="284652b6-810d-4a63-a7bb-3f2d7ba169d9"/>
+				<box>
+					<bottomPen lineWidth="0.25" lineStyle="Solid"/>
+					<rightPen lineWidth="0.25" lineStyle="Solid"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dataEmissaoRelatorio}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="555" height="21" uuid="0f9df926-40cc-40e6-b619-f8618e030f50"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{listaHorarios})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "sub_horarios.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<summary>
+		<band height="25">
+			<subreport>
+				<reportElement x="0" y="0" width="555" height="25" uuid="4a464cbf-88b3-46cb-bfd9-10207601e7ce"/>
+				<subreportParameter name="DATA_INICIO">
+					<subreportParameterExpression><![CDATA[$P{DATA_INICIO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="DATA_FIM">
+					<subreportParameterExpression><![CDATA[$P{DATA_FIM}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{listaPeriodo})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "sub_periodo.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</summary>
+</jasperReport>

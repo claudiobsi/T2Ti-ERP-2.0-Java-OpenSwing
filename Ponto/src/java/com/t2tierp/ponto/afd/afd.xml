@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:Texgit xmlns:ns2="http://gilmatryx.googlepages.com/Texgit">
+    <FlatFile>
+        <layout>
+            <name>Arquivo AFD</name>
+            <version>1</version>
+            <description>Layout de geração do arquivo AFD - Arquivo Fonte de Dados</description>
+        </layout>
+        <GroupOfRecords>
+            <Record name="Tipo1">
+                <GroupOfFields>
+                    <IdType length="1" value="1" name="TipoRegistro" position="2"/>
+					<Field padding="ZERO_LEFT" type="LONG" value="000000000" length="9" name="NumeroSequencialRegistro"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="1" name="TipoIdentificadorEmpregador"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="14" name="CnpjCpfEmpreador"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="12" name="CeiEmpregador"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="150" name="RazaoSocialEmpregador"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="17" name="NumeroFabricacaoRep"/>
+					<Field padding="ZERO_LEFT" type="DATE" length="8" name="DataInicial" format="DATE_DDMMYYYY" />
+					<Field padding="ZERO_LEFT" type="DATE" length="8" name="DataFinal" format="DATE_DDMMYYYY" />
+					<Field padding="ZERO_LEFT" type="DATE" length="8" name="DataGeracaoArquivo" format="DATE_DDMMYYYY" />
+					<Field padding="ZERO_LEFT" type="INTEGER" length="4" name="HoraGeracaoArquivo"/>
+                </GroupOfFields>
+            </Record>
+            <Record name="Tipo2"  >
+                <GroupOfFields>
+                    <IdType length="1" value="2" name="TipoRegistro" position="2"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="9" name="NumeroSequencialRegistro"/>
+					<Field padding="ZERO_LEFT" type="DATE" length="8" name="DataGravacao" format="DATE_DDMMYYYY" />
+					<Field padding="ZERO_LEFT" type="STRING" length="4" name="HoraGravacao" />
+					<Field padding="ZERO_LEFT" type="INTEGER" length="1" name="TipoIdentificadorEmpregador"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="14" name="CnpjCpfEmpregador"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="12" blankAccepted="true" name="CeiEmpregador"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="150" name="RazaoSocialEmpregador"/>
+					<Field type="STRING" length="100" name="LocalPrestacaoServico"/>
+                </GroupOfFields>
+            </Record>
+            <Record name="Tipo3" repeatable="true" >
+                <GroupOfFields>
+					<IdType length="1" value="3" name="TipoRegistro" position="2"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="9" name="NumeroSequencialRegistro"/>
+					<Field padding="ZERO_LEFT" type="DATE" length="8" name="DataMarcacao" format="DATE_DDMMYYYY" />
+					<Field padding="ZERO_LEFT" type="STRING" length="4" name="HoraMarcacao"/>
+					<Field padding="ZERO_LEFT" type="STRING" length="12" name="PisEmpregado"/>
+                </GroupOfFields>
+            </Record>
+            <Record name="Tipo4" repeatable="true" >
+                <GroupOfFields>
+					<IdType length="1" value="4" name="TipoRegistro" position="2"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="9" name="NumeroSequencialRegistro"/>
+					<Field padding="ZERO_LEFT" type="DATE" length="8" name="DataAntesAjuste" format="DATE_DDMMYYYY" />
+					<Field padding="ZERO_LEFT" type="STRING" length="4" name="HoraAntesAjuste" />
+					<Field padding="ZERO_LEFT" type="DATE" length="8" name="DataAjustada" format="DATE_DDMMYYYY" />
+					<Field padding="ZERO_LEFT" type="STRING" length="4" name="HoraAjustada" />
+                </GroupOfFields>
+            </Record>
+            <Record name="Tipo5" repeatable="true" >
+                <GroupOfFields>
+					<IdType length="1" value="5" name="TipoRegistro" position="2"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="9" name="NumeroSequencialRegistro"/>
+					<Field padding="ZERO_LEFT" type="DATE" length="8" name="DataGravacao" format="DATE_DDMMYYYY" />
+					<Field padding="ZERO_LEFT" type="STRING" length="4" name="HoraGravacao" />
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="1" name="TipoOperacao"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="12" name="PisEmpregado"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="52" name="NomeEmpregado"/>
+                </GroupOfFields>
+            </Record>
+            <Record name="Tipo9" >
+                <GroupOfFields>
+					<IdType length="9" value="999999999" name="NumeroSequencialRegistro" position="1"/>
+					<!--<Field padding="ZERO_LEFT" type="LONG" length="9" value="999999999" name="NumeroSequencialRegistro"/>-->
+					<Field padding="ZERO_LEFT" type="LONG" length="9" name="QuantidadeTipo2"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="9" name="QuantidadeTipo3"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="9" name="QuantidadeTipo4"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="9" name="QuantidadeTipo5"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="1" name="TipoRegistro"/>
+                </GroupOfFields>
+            </Record>
+        </GroupOfRecords>
+    </FlatFile>
+</ns2:Texgit>

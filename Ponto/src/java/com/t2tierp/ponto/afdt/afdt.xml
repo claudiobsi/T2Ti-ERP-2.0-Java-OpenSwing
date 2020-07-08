@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:Texgit xmlns:ns2="http://gilmatryx.googlepages.com/Texgit">
+    <FlatFile>
+        <layout>
+            <name>Arquivo AFDT</name>
+            <version>1</version>
+            <description>Layout de geração do arquivo AFDT - Arquivo Fonte de Dados Tratado</description>
+        </layout>
+        <GroupOfRecords>
+            <Record name="Tipo1">
+                <GroupOfFields>
+                    <IdType length="1" value="1" name="TipoRegistro" position="2"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="9" name="NumeroSequencialRegistro"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="1" name="TipoIdentificadorEmpregador"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="14" name="CnpjCpfEmpreador"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="12" name="CeiEmpregador"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="150" name="RazaoSocialEmpregador"/>
+					<Field padding="ZERO_LEFT" type="DATE" length="8" name="DataInicial" format="DATE_DDMMYYYY" />
+					<Field padding="ZERO_LEFT" type="DATE" length="8" name="DataFinal" format="DATE_DDMMYYYY" />
+					<Field padding="ZERO_LEFT" type="DATE" length="8" name="DataGeracaoArquivo" format="DATE_DDMMYYYY" />
+					<Field padding="ZERO_LEFT" type="STRING" length="4" name="HoraGeracaoArquivo"/>
+                </GroupOfFields>
+            </Record>
+            <Record name="Tipo2" repeatable="true" >
+                <GroupOfFields>
+					<IdType length="1" value="2" name="TipoRegistro" position="2"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="9" name="NumeroSequencialRegistro"/>
+					<Field padding="ZERO_LEFT" type="DATE" length="8" name="DataMarcacao" format="DATE_DDMMYYYY" />
+					<Field padding="ZERO_LEFT" type="STRING" length="4" name="HoraMarcacao"/>
+					<Field padding="ZERO_LEFT" type="STRING" length="12" name="PisEmpregado"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="17" name="NumFabricacaoREP"/>
+					<Field type="STRING" length="1" name="TipoMarcacao"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="2" name="NumeroSequencialEmpregado"/>
+					<Field type="STRING" length="1" name="TipoRegistroMarcado" />
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="100" name="Motivo" />
+                </GroupOfFields>
+            </Record>
+            <Record name="Tipo9" >
+                <GroupOfFields>
+					<IdType length="1" value="9" name="TipoRegistro" position="2" />
+					<Field padding="ZERO_LEFT" type="LONG" length="9" name="NumeroSequencialRegistro" />
+                </GroupOfFields>
+            </Record>
+        </GroupOfRecords>
+    </FlatFile>
+</ns2:Texgit>

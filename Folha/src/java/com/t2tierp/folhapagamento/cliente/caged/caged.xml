@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:Texgit xmlns:ns2="http://gilmatryx.googlepages.com/Texgit">
+    <FlatFile>
+        <layout>
+            <name>Arquivo CAGED - Cadastro Geral de Empregados e Desempregados</name>
+            <version>1</version>
+            <description>Layout de geração do arquivo CAGED</description>
+        </layout>
+        <GroupOfRecords>
+            <Record name="TipoA">
+                <GroupOfFields>
+                    <IdType length="1" value="A" name="TipoRegistro" position="1"/>
+                    <Field padding="WHITE_SPACE_RIGHT" type="STRING" length="5" name="TipoLayout"/>
+                    <Field padding="WHITE_SPACE_RIGHT" type="STRING" length="3" value=" " name="Filler"/>
+                    <Field padding="ZERO_LEFT" type="INTEGER" length="2" name="MesCompetencia"/>
+                    <Field padding="ZERO_LEFT" type="INTEGER" length="4" name="AnoCompetencia"/>
+                    <Field padding="ZERO_LEFT" type="INTEGER" length="1" name="Alteracao"/>
+                    <Field padding="ZERO_LEFT" type="INTEGER" length="5" name="Sequencia"/>
+                    <Field padding="ZERO_LEFT" type="INTEGER" length="1" name="TipoIdentificacao"/>
+                    <Field padding="ZERO_LEFT" type="LONG" length="14" name="NumeroIdentificadorAutorizado"/>
+                    <Field padding="WHITE_SPACE_RIGHT" type="STRING" length="35" name="NomeAutorizado"/>
+                    <Field padding="WHITE_SPACE_RIGHT" type="STRING" length="40" name="EnderecoAutorizado"/>
+                    <Field padding="ZERO_LEFT" type="INTEGER" length="8" name="CEP"/>
+                    <Field padding="WHITE_SPACE_RIGHT" type="STRING" length="2" name="UF"/>
+                    <Field padding="ZERO_LEFT" type="INTEGER" length="4" name="DDD"/>
+                    <Field padding="ZERO_LEFT" type="INTEGER" length="8" name="Telefone"/>
+                    <Field padding="ZERO_LEFT" type="INTEGER" length="5" name="Ramal"/>
+                    <Field padding="ZERO_LEFT" type="INTEGER" length="5" name="TotalEstabelecimentosInformados"/>
+                    <Field padding="ZERO_LEFT" type="INTEGER" length="5" name="TotalMovimentacoesInformadas"/>
+                    <Field padding="WHITE_SPACE_RIGHT" type="STRING" length="92" value=" " name="Filler2"/>
+                </GroupOfFields>
+            </Record>
+            <Record name="TipoB" repeatable="true">
+                <GroupOfFields>
+                    <IdType length="1" value="B" name="TipoRegistro" position="1"/>
+                    <Field padding="ZERO_LEFT" type="INTEGER" length="1" name="TipoIdentificacao"/>
+                    <Field padding="ZERO_LEFT" type="LONG" length="14" name="NumeroIdentificadorEstabelecimento"/>
+                    <Field padding="ZERO_LEFT" type="INTEGER" length="5" name="Sequencia"/>
+                    <Field padding="ZERO_LEFT" type="INTEGER" length="1" name="PrimeiraDeclaracao"/>
+                    <Field padding="ZERO_LEFT" type="INTEGER" length="1" name="Alteracao"/>
+                    <Field padding="ZERO_LEFT" type="INTEGER" length="8" name="CEP"/>
+                    <Field padding="WHITE_SPACE_RIGHT" type="STRING" length="5" value=" " name="Filler"/>
+                    <Field padding="WHITE_SPACE_RIGHT" type="STRING" length="40" name="NomeEstabelecimento"/>
+                    <Field padding="WHITE_SPACE_RIGHT" type="STRING" length="40" name="Endereco"/>
+                    <Field padding="WHITE_SPACE_RIGHT" type="STRING" length="20" name="Bairro"/>
+                    <Field padding="WHITE_SPACE_RIGHT" type="STRING" length="2" name="UF"/>
+                    <Field padding="ZERO_LEFT" type="INTEGER" length="5" name="TotalEmpregadosPrimeiroDia"/>
+                    <Field padding="ZERO_LEFT" type="INTEGER" length="1" name="PorteEstabelecimento"/>
+                    <Field padding="ZERO_LEFT" type="INTEGER" length="7" name="CNAE"/>
+                    <Field padding="ZERO_LEFT" type="INTEGER" length="4" name="DDD"/>
+                    <Field padding="ZERO_LEFT" type="INTEGER" length="8" name="Telefone"/>
+                    <Field padding="WHITE_SPACE_RIGHT" type="STRING" length="50" name="Email"/>
+                    <Field padding="WHITE_SPACE_RIGHT" type="STRING" length="27" value=" " name="Filler2"/>
+                </GroupOfFields>
+            </Record>
+			<Record name="TipoC" repeatable="true" >
+				<GroupOfFields>
+					<IdType length="1" value="C" name="TipoRegistro" position="1"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="1" name="TipoIdentificacao"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="14" name="NumeroIdentificadorEstabelecimento"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="5" name="Sequencia"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="11" name="PisPasep"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="1" name="Sexo"/>
+					<Field padding="ZERO_LEFT" type="DATE" length="8" name="DataNascimento" format="DATE_DDMMYYYY" />
+					<Field padding="ZERO_LEFT" type="INTEGER" length="2" name="Instrucao"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="4" value=" " name="Filler"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="8" name="SalarioMensal"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="2" name="HorasTrabalhadas"/>
+					<Field padding="ZERO_LEFT" type="DATE" length="8" name="DataAdmissao" format="DATE_DDMMYYYY" />
+					<Field padding="ZERO_LEFT" type="INTEGER" length="2" name="TipoMovimento"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="2" name="DiaDesligamento"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="40" name="NomeEmpregado"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="8" name="NumeroCtps"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="4" name="SerieCtps"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="7" value=" " name="Filler2"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="1" name="RacaCor"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="1" name="PessoaDeficiente"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="6" name="CBO2000"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="1" name="Aprendiz"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="2" name="UFCtps"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="1" name="TipoDeficiencia"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="11" name="CPF"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="8" name="CEPResidenciaTrabalhador"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="81" value=" " name="Filler3"/>
+				</GroupOfFields>
+			</Record>
+			<Record name="TipoX" repeatable="true" >
+				<GroupOfFields>
+					<IdType length="1" value="X" name="TipoRegistro" position="1"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="1" name="TipoIdentificacao"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="14" name="NumeroIdentificadorEstabelecimento"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="5" name="Sequencia"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="11" name="PisPasep"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="1" name="Sexo"/>
+					<Field padding="ZERO_LEFT" type="DATE" length="8" name="DataNascimento" format="DATE_DDMMYYYY" />
+					<Field padding="ZERO_LEFT" type="INTEGER" length="2" name="Instrucao"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="4" value=" " name="Filler"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="8" name="SalarioMensal"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="2" name="HorasTrabalhadas"/>
+					<Field padding="ZERO_LEFT" type="DATE" length="8" name="DataAdmissao" format="DATE_DDMMYYYY" />
+					<Field padding="ZERO_LEFT" type="INTEGER" length="2" name="TipoMovimento"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="2" name="DiaDesligamento"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="40" name="NomeEmpregado"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="8" name="NumeroCtps"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="4" name="SerieCtps"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="1" name="Atualizacao"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="2" name="MesCompetenciaAcerto"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="4" name="AnoCompetenciaAcerto"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="1" name="RacaCor"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="1" name="PessoaDeficiente"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="6" name="CBO2000"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="1" name="Aprendiz"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="2" name="UFCtps"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="1" name="TipoDeficiencia"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="11" name="CPF"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="8" name="CEPResidenciaTrabalhador"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="81" value=" " name="Filler3"/>
+				</GroupOfFields>
+			</Record>
+        </GroupOfRecords>
+    </FlatFile>
+</ns2:Texgit>

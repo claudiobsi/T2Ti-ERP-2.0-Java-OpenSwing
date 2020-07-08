@@ -1,0 +1,4 @@
+Permissions: all-permissions
+Codebase: http://localhost:8084/
+Application-Name: T2Ti ERP
+

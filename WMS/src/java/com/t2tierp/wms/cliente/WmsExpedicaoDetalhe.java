@@ -1,0 +1,380 @@
+/*
+ * The MIT License
+ * 
+ * Copyright: Copyright (C) 2014 T2Ti.COM
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ * 
+ * The author may be contacted at: t2ti.com@gmail.com
+ *
+ * @author Claudio de Barros (T2Ti.com)
+ * @version 2.0
+ */
+package com.t2tierp.wms.cliente;
+
+import com.t2tierp.padrao.cliente.LookupDataLocatorGenerico;
+import java.awt.Dimension;
+import javax.swing.ImageIcon;
+import javax.swing.ListSelectionModel;
+import org.openswing.swing.lookup.client.LookupController;
+import org.openswing.swing.mdi.client.InternalFrame;
+import org.openswing.swing.util.client.ClientUtils;
+
+public class WmsExpedicaoDetalhe extends InternalFrame {
+
+    private WmsExpedicaoDetalheController controller;
+    private WmsExpedicaoItensController itensController;
+    private WmsExpedicaoOrdemSeparacaoController ordemSeparacaoController;
+    private LookupController armazenamentoController = new LookupController();
+
+    public WmsExpedicaoDetalhe(WmsExpedicaoDetalheController controller) {
+        initComponents();
+
+        this.controller = controller;
+        form1.setFormController(controller);
+
+        ordemSeparacaoController = new WmsExpedicaoOrdemSeparacaoController();
+        formOrdemSeparacao.setFormController(ordemSeparacaoController);
+
+        itensController = new WmsExpedicaoItensController();
+        gridControl1.setController(itensController);
+        gridControl1.setGridDataLocator(itensController);
+        gridControl1.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+
+        /*
+         * Configurações do lookup do armazenamento
+         */
+        armazenamentoController.setLookupValueObjectClassName("com.t2tierp.wms.java.WmsArmazenamentoVO");
+        armazenamentoController.addLookup2ParentLink("id", "wmsArmazenamento.id");
+        armazenamentoController.addLookup2ParentLink("wmsCaixa.codigo", "wmsArmazenamento.wmsCaixa.codigo");
+        armazenamentoController.addLookup2ParentLink("wmsRecebimentoDetalhe.produto.nome", "wmsArmazenamento.wmsRecebimentoDetalhe.produto.nome");
+        armazenamentoController.addLookup2ParentLink("quantidade", "quantidade");
+
+        armazenamentoController.setHeaderColumnName("id", "ID");
+        armazenamentoController.setHeaderColumnName("wmsCaixa.codigo", "Código");
+        armazenamentoController.setHeaderColumnName("wmsRecebimentoDetalhe.produto.nome", "Produto");
+        armazenamentoController.setFrameTitle("Importa Armazenamento");
+
+        armazenamentoController.setVisibleStatusPanel(true);
+        armazenamentoController.setVisibleColumn("id", true);
+        armazenamentoController.setVisibleColumn("wmsCaixa.", true);
+        armazenamentoController.setVisibleColumn("wmsRecebimentoDetalhe.produto.nome", true);
+        armazenamentoController.setPreferredWidthColumn("wmsRecebimentoDetalhe.produto.nome", 300);
+        armazenamentoController.setFramePreferedSize(new Dimension(600, 500));
+
+        armazenamentoController.setLookupDataLocator(new LookupDataLocatorGenerico(armazenamentoController.getLookupValueObjectClassName()));
+        codLookupControl3.setLookupController(armazenamentoController);
+    }
+
+    /**
+     * @return the form1
+     */
+    public org.openswing.swing.form.client.Form getForm1() {
+        return form1;
+    }
+
+    public WmsExpedicaoItensController getItensController() {
+        return itensController;
+    }
+
+    public WmsExpedicaoOrdemSeparacaoController getOrdemSeparacaoController() {
+        return ordemSeparacaoController;
+    }
+
+    public org.openswing.swing.form.client.Form getFormOrdemSeparacao() {
+        return formOrdemSeparacao;
+    }
+
+    public org.openswing.swing.client.GridControl getGridControl1() {
+        return gridControl1;
+    }
+    
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
+
+        form1 = new org.openswing.swing.form.client.Form();
+        labelControl2 = new org.openswing.swing.client.LabelControl();
+        textControl2 = new org.openswing.swing.client.TextControl();
+        labelControl3 = new org.openswing.swing.client.LabelControl();
+        codLookupControl3 = new org.openswing.swing.client.CodLookupControl();
+        labelControl5 = new org.openswing.swing.client.LabelControl();
+        numericControl4 = new org.openswing.swing.client.NumericControl();
+        labelControl6 = new org.openswing.swing.client.LabelControl();
+        dateControl5 = new org.openswing.swing.client.DateControl();
+        formOrdemSeparacao = new org.openswing.swing.form.client.Form();
+        labelControl1 = new org.openswing.swing.client.LabelControl();
+        comboBoxControl3 = new org.openswing.swing.client.ComboBoxControl();
+        labelControl4 = new org.openswing.swing.client.LabelControl();
+        dateControl4 = new org.openswing.swing.client.DateControl();
+        labelControl7 = new org.openswing.swing.client.LabelControl();
+        dateControl6 = new org.openswing.swing.client.DateControl();
+        jPanel1 = new javax.swing.JPanel();
+        gridControl1 = new org.openswing.swing.client.GridControl();
+        textColumn1 = new org.openswing.swing.table.columns.client.TextColumn();
+        integerColumn4 = new org.openswing.swing.table.columns.client.IntegerColumn();
+        jPanel2 = new javax.swing.JPanel();
+        genericButton1 = new org.openswing.swing.client.GenericButton(new ImageIcon(ClientUtils.getImage("ok.gif")));
+
+        setTitle("T2Ti ERP - WMS");
+        setPreferredSize(new java.awt.Dimension(700, 400));
+        getContentPane().setLayout(new java.awt.GridBagLayout());
+
+        form1.setBorder(javax.swing.BorderFactory.createTitledBorder("Armazenamento"));
+        form1.setVOClassName("com.t2tierp.wms.java.WmsExpedicaoVO");
+        form1.setFunctionId("wmsExpedicao");
+        form1.setLayout(new java.awt.GridBagLayout());
+
+        labelControl2.setText("Produto:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 0, 5);
+        form1.add(labelControl2, gridBagConstraints);
+
+        textControl2.setAttributeName("wmsArmazenamento.wmsRecebimentoDetalhe.produto.nome");
+        textControl2.setEnabled(false);
+        textControl2.setEnabledOnEdit(false);
+        textControl2.setEnabledOnInsert(false);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 5, 5, 5);
+        form1.add(textControl2, gridBagConstraints);
+
+        labelControl3.setText("Codigo Caixa:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 0, 5);
+        form1.add(labelControl3, gridBagConstraints);
+
+        codLookupControl3.setAttributeName("wmsArmazenamento.wmsCaixa.codigo");
+        codLookupControl3.setEnabled(false);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(0, 5, 5, 5);
+        form1.add(codLookupControl3, gridBagConstraints);
+
+        labelControl5.setLabel("Quantidade:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 0, 5);
+        form1.add(labelControl5, gridBagConstraints);
+
+        numericControl4.setAttributeName("quantidade");
+        numericControl4.setEnabled(false);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(0, 5, 5, 5);
+        form1.add(numericControl4, gridBagConstraints);
+
+        labelControl6.setLabel("Data Saida:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 0, 5);
+        form1.add(labelControl6, gridBagConstraints);
+
+        dateControl5.setAttributeName("dataSaida");
+        dateControl5.setEnabled(false);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(0, 5, 5, 5);
+        form1.add(dateControl5, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        getContentPane().add(form1, gridBagConstraints);
+
+        formOrdemSeparacao.setBorder(javax.swing.BorderFactory.createTitledBorder("Ordem de Separacao"));
+        formOrdemSeparacao.setVOClassName("com.t2tierp.wms.java.WmsOrdemSeparacaoCabVO");
+        formOrdemSeparacao.setFunctionId("wmsOrdemSeparacaoCab");
+        formOrdemSeparacao.setLayout(new java.awt.GridBagLayout());
+
+        labelControl1.setLabel("Origem:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 0, 5);
+        formOrdemSeparacao.add(labelControl1, gridBagConstraints);
+
+        comboBoxControl3.setAttributeName("origem");
+        comboBoxControl3.setDomainId("wmsOrigemOrdemSeparacao");
+        comboBoxControl3.setEnabled(false);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 5, 5, 5);
+        formOrdemSeparacao.add(comboBoxControl3, gridBagConstraints);
+
+        labelControl4.setLabel("Data Solicitacao:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 0, 5);
+        formOrdemSeparacao.add(labelControl4, gridBagConstraints);
+
+        dateControl4.setAttributeName("dataSolicitacao");
+        dateControl4.setEnabled(false);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(0, 5, 5, 5);
+        formOrdemSeparacao.add(dateControl4, gridBagConstraints);
+
+        labelControl7.setLabel("Data Limite:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 0, 5);
+        formOrdemSeparacao.add(labelControl7, gridBagConstraints);
+
+        dateControl6.setAttributeName("dataLimite");
+        dateControl6.setEnabled(false);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(0, 5, 5, 5);
+        formOrdemSeparacao.add(dateControl6, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        getContentPane().add(formOrdemSeparacao, gridBagConstraints);
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Itens Para Expedicao"));
+        jPanel1.setLayout(new java.awt.GridBagLayout());
+
+        gridControl1.setAutoLoadData(false);
+        gridControl1.setFunctionId("wmsExpedicao");
+        gridControl1.setValueObjectClassName("com.t2tierp.wms.java.WmsOrdemSeparacaoDetVO");
+
+        textColumn1.setColumnName("produto.nome");
+        textColumn1.setHeaderColumnName("Produto");
+        textColumn1.setHeaderFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        textColumn1.setPreferredWidth(400);
+        gridControl1.getColumnContainer().add(textColumn1);
+
+        integerColumn4.setColumnName("quantidade");
+        integerColumn4.setEditableOnEdit(true);
+        integerColumn4.setEditableOnInsert(true);
+        integerColumn4.setHeaderColumnName("Quantidade");
+        integerColumn4.setHeaderFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        gridControl1.getColumnContainer().add(integerColumn4);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        jPanel1.add(gridControl1, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        getContentPane().add(jPanel1, gridBagConstraints);
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Wms Expedicao"));
+        jPanel2.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+
+        genericButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                genericButton1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(genericButton1);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        getContentPane().add(jPanel2, gridBagConstraints);
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void genericButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_genericButton1ActionPerformed
+        controller.expedicaoItens();
+    }//GEN-LAST:event_genericButton1ActionPerformed
+
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private org.openswing.swing.client.CodLookupControl codLookupControl3;
+    private org.openswing.swing.client.ComboBoxControl comboBoxControl3;
+    private org.openswing.swing.client.DateControl dateControl4;
+    private org.openswing.swing.client.DateControl dateControl5;
+    private org.openswing.swing.client.DateControl dateControl6;
+    private org.openswing.swing.form.client.Form form1;
+    private org.openswing.swing.form.client.Form formOrdemSeparacao;
+    private org.openswing.swing.client.GenericButton genericButton1;
+    private org.openswing.swing.client.GridControl gridControl1;
+    private org.openswing.swing.table.columns.client.IntegerColumn integerColumn4;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private org.openswing.swing.client.LabelControl labelControl1;
+    private org.openswing.swing.client.LabelControl labelControl2;
+    private org.openswing.swing.client.LabelControl labelControl3;
+    private org.openswing.swing.client.LabelControl labelControl4;
+    private org.openswing.swing.client.LabelControl labelControl5;
+    private org.openswing.swing.client.LabelControl labelControl6;
+    private org.openswing.swing.client.LabelControl labelControl7;
+    private org.openswing.swing.client.NumericControl numericControl4;
+    private org.openswing.swing.table.columns.client.TextColumn textColumn1;
+    private org.openswing.swing.client.TextControl textControl2;
+    // End of variables declaration//GEN-END:variables
+
+
+}

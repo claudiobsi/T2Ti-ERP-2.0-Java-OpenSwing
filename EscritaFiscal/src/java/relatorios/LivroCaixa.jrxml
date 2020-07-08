@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FinMovimentoCaixaBanco" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f3518702-cf3a-49e7-8590-9bc1089d172b">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="RAZAO_SOCIAL" class="java.lang.String"/>
+	<parameter name="NOME_FANTASIA" class="java.lang.String"/>
+	<parameter name="LOGO_EMPRESA" class="java.awt.Image"/>
+	<parameter name="NOME_SOFTWARE_HOUSE" class="java.lang.String"/>
+	<field name="viewFinMovimentoCaixaBanco.nomePessoa" class="java.lang.String"/>
+	<field name="viewFinMovimentoCaixaBanco.dataLancamento" class="java.util.Date"/>
+	<field name="viewFinMovimentoCaixaBanco.historico" class="java.lang.String"/>
+	<field name="viewFinMovimentoCaixaBanco.dataPagoRecebido" class="java.util.Date"/>
+	<field name="viewFinMovimentoCaixaBanco.valor" class="java.math.BigDecimal"/>
+	<field name="viewFinMovimentoCaixaBanco.operacao" class="java.lang.String"/>
+	<variable name="RECEBIMENTOS" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{viewFinMovimentoCaixaBanco.operacao}.equals("E") ?
+$F{viewFinMovimentoCaixaBanco.valor} :
+BigDecimal.ZERO]]></variableExpression>
+	</variable>
+	<variable name="PAGAMENTOS" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{viewFinMovimentoCaixaBanco.operacao}.equals("S") ?
+$F{viewFinMovimentoCaixaBanco.valor} :
+BigDecimal.ZERO]]></variableExpression>
+	</variable>
+	<variable name="SALDO" class="java.math.BigDecimal">
+		<variableExpression><![CDATA[$V{RECEBIMENTOS}.subtract($V{PAGAMENTOS})]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="120" splitType="Stretch">
+			<textField>
+				<reportElement x="160" y="40" width="642" height="40" uuid="5c5a1f3e-b323-4637-855e-24262df27f64"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{RAZAO_SOCIAL}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="10" y="0" width="150" height="120" uuid="f7342e1c-8e83-4f29-bf93-745d67c5ab69"/>
+				<imageExpression><![CDATA[$P{LOGO_EMPRESA}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="160" y="80" width="642" height="40" uuid="d2760a4a-0590-4797-bbd8-78a09d442c6d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Movimento Caixa Banco]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="160" y="0" width="642" height="40" uuid="260ebfa6-e9d5-4b52-888c-c432d51b731d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{NOME_FANTASIA}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="57" height="30" uuid="e56dbe04-d110-4474-bd34-bbdf64a910a4"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DT LCTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="57" y="0" width="321" height="30" uuid="e7927af1-9719-4e29-b88c-9e97c0fc6c48"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cliente / Fornecedor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="378" y="0" width="276" height="30" uuid="a673bc46-ec83-4eb0-83c9-69476fdb640b"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Histórico]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="654" y="0" width="74" height="30" uuid="abac7104-e8a4-4f03-83ee-51dbec8bf32b"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Pgto/Rcto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="728" y="0" width="74" height="30" uuid="5fbd2376-39b3-4a42-8d16-f3528a095644"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Valor]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="0" y="0" width="57" height="20" uuid="1772a794-279a-4514-991d-9d3b4276d7d7"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{viewFinMovimentoCaixaBanco.dataLancamento}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="57" y="0" width="321" height="20" uuid="aa0b0cff-9c12-4c0e-83be-72d7f85b2d10"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{viewFinMovimentoCaixaBanco.nomePessoa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="378" y="0" width="276" height="20" uuid="27a7af88-6c98-4580-b5e8-631627f478e3"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{viewFinMovimentoCaixaBanco.historico}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="654" y="0" width="74" height="20" uuid="5845a2e2-0e76-4277-988f-8b3cfb8981d2"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{viewFinMovimentoCaixaBanco.dataPagoRecebido}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;-#,##0.00">
+				<reportElement x="728" y="0" width="74" height="20" uuid="9a217875-d1fa-454b-bbd0-76bea46d8fc0"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{viewFinMovimentoCaixaBanco.valor}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="40">
+			<textField pattern="dd/MM/yyyy HH.mm.ss">
+				<reportElement x="0" y="0" width="150" height="20" uuid="a63cb540-ec63-46ff-9a6e-8451be047c10"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="524" y="20" width="278" height="20" uuid="88891758-2dca-48a6-b037-8c2730567aad"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Desenvolvido por " + $P{NOME_SOFTWARE_HOUSE}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="762" y="0" width="40" height="20" uuid="1e80d7f1-cfd0-4981-97ab-e58d68554b91"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="682" y="0" width="80" height="20" uuid="d677695b-a86f-4c21-9911-744e571f7ede"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<lastPageFooter>
+		<band height="20">
+			<textField evaluationTime="Report" pattern="#,##0.00;-#,##0.00">
+				<reportElement x="92" y="0" width="100" height="20" uuid="4e381314-0127-48e7-b381-36774111bde2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{RECEBIMENTOS}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="92" height="20" uuid="858df626-6960-480a-b1b2-810eec1bb2f4"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Recebimentos:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="297" y="0" width="92" height="20" uuid="13f2f658-fcf5-4443-aa27-74177382ede7"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Pagamentos:]]></text>
+			</staticText>
+			<textField evaluationTime="Report" pattern="#,##0.00;-#,##0.00">
+				<reportElement x="389" y="0" width="100" height="20" uuid="80a9ce5d-34db-4556-93fd-58e5b48bef1b"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{PAGAMENTOS}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="610" y="0" width="92" height="20" uuid="5ce12415-e957-465f-9d34-67b0a0d4e21a"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Saldo:]]></text>
+			</staticText>
+			<textField evaluationTime="Report" pattern="#,##0.00;-#,##0.00">
+				<reportElement x="702" y="0" width="100" height="20" uuid="e4a74e57-1a57-4f5a-9d6e-1012223d9059"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{PAGAMENTOS}]]></textFieldExpression>
+			</textField>
+		</band>
+	</lastPageFooter>
+</jasperReport>

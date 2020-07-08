@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<!-- JNLP para gerenciar a aplicação -->
+<jnlp spec="1.0+" codebase = "$$codebase"> 
+
+    <application-desc main-class="com.t2tierp.padrao.cliente.Menu"/>
+
+    <information>
+        <title>T2Ti ERP</title>
+        <vendor>by T2Ti.COM</vendor>
+        <description>T2Ti ERP</description>
+    </information>
+
+    <security>
+        <all-permissions/>
+    </security>
+
+    <resources>
+        <j2se version="1.6+"/>
+        <jar href="T2TiERPCliente.jar" />
+        <jar href="clientos.jar" />
+        <jar href="commonos.jar" />
+        <jar href="jcalendar.jar" />
+        <jar href="jnlp.jar" />
+        <jar href="hessian-3.1.6.jar" />
+        <jar href="log4j-1.2.7.jar" />
+        <jar href="iText-2.1.7.jar" />
+        <!-- bibliotecas do liquid look and fell -->
+        <jar href="liquidlnf.jar" />
+        <!-- bibliotecas do bopepo 
+        <jar href="Bopepo.jar" />
+        -->
+
+        <!-- biblioteca apache
+        <jar href="commons-io-2.0.jar" />
+        <jar href="commons-lang-2.4.jar" />
+        -->
+
+        <!-- bibliotecas do texgit
+        <jar href="JRimum-Texgit-0.2.0-SNAPSHOT-20101207.jar" />
+        <jar href="JRimum-Texgit-Utilix-0.2.0-SNAPSHOT-20101207.jar" />
+        -->
+
+        <!-- biblioteca de acesso ao scanner
+        <jar href="MmsComputing.jar" />
+        -->
+        <!-- bibliotecas do jasper 
+        <jar href="jasperreports-5.6.0.jar" />
+        <jar href="commons-beanutils-1.8.2.jar" />
+        <jar href="commons-digester-1.7.jar" />
+        <jar href="commons-logging-1.1.jar" />
+        <jar href="commons-collections-3.2.1.jar" />
+        <jar href="jasper-compiler-jdt-5.5.23.jar" />
+        -->
+        <!-- biblioteca geraçao qrcode 
+        <jar href="zxing_javase.jar" />
+        <jar href="zxing-core.jar" />
+        -->
+        <property name="jnlp.SERVERURL" value="$$context/controller"/>
+
+    </resources>
+
+</jnlp>
+

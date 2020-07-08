@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="EtiquetaNFe" pageWidth="450" pageHeight="400" columnWidth="410" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d3f9f739-4e89-4a2c-a6f3-ea90a819a13e">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="EMPRESA" class="java.lang.String"/>
+	<parameter name="DESCRICAO" class="java.lang.String"/>
+	<parameter name="CONTEUDO" class="java.lang.String"/>
+	<parameter name="QUANTIDADE" class="java.lang.Integer" isForPrompting="false"/>
+	<parameter name="NUMERO" class="java.lang.String"/>
+	<parameter name="LOGO" class="java.awt.Image"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="295">
+			<image>
+				<reportElement x="0" y="0" width="150" height="150" uuid="b8727ff5-3c21-44e2-90dd-730a3dcb1542"/>
+				<imageExpression><![CDATA[$P{LOGO}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="150" y="0" width="260" height="65" uuid="6bca7a91-005a-41bf-9794-25d90066fa01"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{EMPRESA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="150" y="65" width="260" height="85" uuid="51ef2b94-0df0-4119-ad7f-eb075df2f5f7"/>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Arial" size="30"/>
+				</textElement>
+				<text><![CDATA[Caixa de Embarque]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="150" width="410" height="27" uuid="01f71659-7622-4999-9622-cc7d2616b1e8"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Descrição: " + $P{DESCRICAO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="177" width="208" height="27" uuid="a84996ab-796d-42ff-9db9-22728f3bce67"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Conteúdo: " + $P{CONTEUDO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="208" y="177" width="202" height="27" uuid="60b295e9-283f-4813-bdc9-645e935574f5"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Quantidade: " + $P{QUANTIDADE}]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement x="0" y="204" width="410" height="84" uuid="77b98b13-3a29-42d6-936e-644fd4d8d61a"/>
+				<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="Code128C" drawText="false" checksumRequired="false">
+					<jr:codeExpression><![CDATA[$P{NUMERO}]]></jr:codeExpression>
+				</jr:barbecue>
+			</componentElement>
+		</band>
+	</detail>
+</jasperReport>

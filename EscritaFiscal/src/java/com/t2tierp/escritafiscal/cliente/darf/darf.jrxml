@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="gps" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ad72658b-b421-4793-af3d-eab9d75432e1">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="LOGO_RECEITA" class="java.awt.Image"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="codigoReceita" class="java.lang.String">
+		<fieldDescription><![CDATA[codigoReceita]]></fieldDescription>
+	</field>
+	<field name="cpfCnpj" class="java.lang.String">
+		<fieldDescription><![CDATA[cpfCnpj]]></fieldDescription>
+	</field>
+	<field name="dataVencimento" class="java.util.Date">
+		<fieldDescription><![CDATA[dataVencimento]]></fieldDescription>
+	</field>
+	<field name="periodoApuracao" class="java.lang.String">
+		<fieldDescription><![CDATA[periodoApuracao]]></fieldDescription>
+	</field>
+	<field name="razaoSocial" class="java.lang.String">
+		<fieldDescription><![CDATA[razaoSocial]]></fieldDescription>
+	</field>
+	<field name="telefone" class="java.lang.String">
+		<fieldDescription><![CDATA[telefone]]></fieldDescription>
+	</field>
+	<field name="valorJuros" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[valorJuros]]></fieldDescription>
+	</field>
+	<field name="valorMulta" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[valorMulta]]></fieldDescription>
+	</field>
+	<field name="valorPrincipal" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[valorPrincipal]]></fieldDescription>
+	</field>
+	<field name="valorTotal" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[valorTotal]]></fieldDescription>
+	</field>
+	<field name="numeroReferencia" class="java.lang.String">
+		<fieldDescription><![CDATA[numeroReferencia]]></fieldDescription>
+	</field>
+	<detail>
+		<band height="464" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="352" height="123" uuid="9a44868c-6ad6-4f85-9a68-ff0349b9ef3c"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Double"/>
+				</graphicElement>
+			</rectangle>
+			<image vAlign="Middle">
+				<reportElement x="0" y="0" width="115" height="123" uuid="7d4bb767-5539-4aa8-b345-2f47ccc6e15a"/>
+				<imageExpression><![CDATA[$P{LOGO_RECEITA}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="133" y="14" width="219" height="39" uuid="5dce92ab-d0e2-4901-85ac-bd1bb5a15f8a"/>
+				<textElement textAlignment="Justified">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[MINISTÉRIO DA FAZENDA
+Secretaria da Receita Federal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="352" y="0" width="100" height="41" uuid="c13fc2db-1a08-459c-b386-d4c3ae6c7060"/>
+				<box>
+					<pen lineWidth="0.25" lineStyle="Double"/>
+					<topPen lineWidth="1.0" lineStyle="Double"/>
+					<leftPen lineWidth="1.0" lineStyle="Double"/>
+					<bottomPen lineWidth="1.0" lineStyle="Double"/>
+					<rightPen lineWidth="1.0" lineStyle="Double"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[02 - PERÍODO DE APURAÇÃO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="452" y="0" width="103" height="41" uuid="28568b8a-a9de-4ac3-9eba-062986619409"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0" lineStyle="Double"/>
+					<leftPen lineWidth="1.0" lineStyle="Double"/>
+					<bottomPen lineWidth="1.0" lineStyle="Double"/>
+					<rightPen lineWidth="1.0" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none"/>
+				<textFieldExpression><![CDATA[$F{periodoApuracao}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="352" y="82" width="100" height="41" uuid="22608afa-1704-41bd-919d-8241b587b42e"/>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Double"/>
+					<topPen lineWidth="1.0" lineStyle="Double"/>
+					<leftPen lineWidth="1.0" lineStyle="Double"/>
+					<bottomPen lineWidth="1.0" lineStyle="Double"/>
+					<rightPen lineWidth="1.0" lineStyle="Double"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[04 - CÓDIGO DA RECEITA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="352" y="41" width="100" height="41" uuid="edc048a3-79fa-4c51-99e2-5873ba620333"/>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Double"/>
+					<topPen lineWidth="1.0" lineStyle="Double"/>
+					<leftPen lineWidth="1.0" lineStyle="Double"/>
+					<bottomPen lineWidth="1.0" lineStyle="Double"/>
+					<rightPen lineWidth="1.0" lineStyle="Double"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[03 - NUMERO DO CPF OU CNPJ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="133" y="82" width="219" height="41" uuid="0d5e8c83-dbec-4cb9-a64b-786011375fd9"/>
+				<textElement textAlignment="Justified">
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DARF]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="352" y="205" width="100" height="41" uuid="bc730732-89b2-453a-9fda-a8e8fb86869b"/>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Double"/>
+					<topPen lineWidth="1.0" lineStyle="Double"/>
+					<leftPen lineWidth="1.0" lineStyle="Double"/>
+					<bottomPen lineWidth="1.0" lineStyle="Double"/>
+					<rightPen lineWidth="1.0" lineStyle="Double"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[07 - VALOR DO PRINCIPAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="352" y="123" width="100" height="41" uuid="29ff5005-264c-4c3d-9ce1-b7db5ee8b418"/>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Double"/>
+					<topPen lineWidth="1.0" lineStyle="Double"/>
+					<leftPen lineWidth="1.0" lineStyle="Double"/>
+					<bottomPen lineWidth="1.0" lineStyle="Double"/>
+					<rightPen lineWidth="1.0" lineStyle="Double"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[05 - NÚMERO DE REFERÊNCIA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="352" y="164" width="100" height="41" uuid="7bcf8083-d562-4237-a4d3-5f7f7879680a"/>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Double"/>
+					<topPen lineWidth="1.0" lineStyle="Double"/>
+					<leftPen lineWidth="1.0" lineStyle="Double"/>
+					<bottomPen lineWidth="1.0" lineStyle="Double"/>
+					<rightPen lineWidth="1.0" lineStyle="Double"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[06 - DATA DE VENCIMENTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="352" y="246" width="100" height="41" uuid="eacec230-680c-44ec-8f8f-7c89bc675a33"/>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Double"/>
+					<topPen lineWidth="1.0" lineStyle="Double"/>
+					<leftPen lineWidth="1.0" lineStyle="Double"/>
+					<bottomPen lineWidth="1.0" lineStyle="Double"/>
+					<rightPen lineWidth="1.0" lineStyle="Double"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[08 - VALOR DA MULTA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="352" y="287" width="100" height="41" uuid="d45641b2-e14a-41af-b528-95576b8c2af8"/>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Double"/>
+					<topPen lineWidth="1.0" lineStyle="Double"/>
+					<leftPen lineWidth="1.0" lineStyle="Double"/>
+					<bottomPen lineWidth="1.0" lineStyle="Double"/>
+					<rightPen lineWidth="1.0" lineStyle="Double"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[09 - VALOR DOS JUROS E/OU ENCARGOS DL - 1025/69]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="352" y="328" width="100" height="41" uuid="64311b2d-e26a-4e5c-8b50-5f53d96cd912"/>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Double"/>
+					<topPen lineWidth="1.0" lineStyle="Double"/>
+					<leftPen lineWidth="1.0" lineStyle="Double"/>
+					<bottomPen lineWidth="1.0" lineStyle="Double"/>
+					<rightPen lineWidth="1.0" lineStyle="Double"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[10 - VALOR TOTAL]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="123" width="352" height="123" uuid="fb6f8e1c-943f-4f4a-9294-85e6cb0175da"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Double"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="123" width="352" height="14" uuid="2a6e1a80-6fb6-4b21-80b0-5087bed52d78"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[01 - NOME / TELEFONE]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="137" width="352" height="68" uuid="3bd01c63-778d-4465-89fc-42cded48ad22"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[$F{razaoSocial} + "\n" + "Telefone: " + $F{telefone}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="0" y="205" width="352" height="82" uuid="bed72a17-1d75-436c-9de0-6c5706a07fa9"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Double"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="307" width="352" height="144" uuid="3d9569b6-7b4c-45f4-8292-a69d91a4781f"/>
+				<box>
+					<pen lineStyle="Double"/>
+					<topPen lineStyle="Double"/>
+					<leftPen lineWidth="1.0" lineStyle="Double"/>
+					<bottomPen lineWidth="1.0" lineStyle="Double"/>
+					<rightPen lineWidth="1.0" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[É vedado o recolhimento de tributos administrados pela Secretaria da Receita Federal do Brasil (RFB) cujo valor total seja inferior a R$ 10,00. Ocorrendo tal situação, adicione esse valor ao tributo de mesmo código de períodos subsequentes, até que o total seja igual ou superior a R$ 10,00.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="352" y="369" width="203" height="82" uuid="c58a6907-aa53-4d75-b985-0eae83f4da9e"/>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Double"/>
+					<topPen lineWidth="1.0" lineStyle="Double"/>
+					<leftPen lineWidth="1.0" lineStyle="Double"/>
+					<bottomPen lineWidth="1.0" lineStyle="Double"/>
+					<rightPen lineWidth="1.0" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[11 - AUTENTICAÇÃO BANCÁRIA (Somente nas 1ª e 2ª vias)]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="452" y="42" width="103" height="41" uuid="5f507023-109f-4a2c-a497-d80a238c9d43"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0" lineStyle="Double"/>
+					<leftPen lineWidth="1.0" lineStyle="Double"/>
+					<bottomPen lineWidth="1.0" lineStyle="Double"/>
+					<rightPen lineWidth="1.0" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none"/>
+				<textFieldExpression><![CDATA[$F{cpfCnpj}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="452" y="83" width="103" height="41" uuid="bcf4ba8b-fbbd-48d8-97c2-e6f59fdc8505"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0" lineStyle="Double"/>
+					<leftPen lineWidth="1.0" lineStyle="Double"/>
+					<bottomPen lineWidth="1.0" lineStyle="Double"/>
+					<rightPen lineWidth="1.0" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none"/>
+				<textFieldExpression><![CDATA[$F{codigoReceita}]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement x="452" y="124" width="103" height="41" uuid="e63804ed-034e-4c84-b4b6-d1152253d3cc"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0" lineStyle="Double"/>
+					<leftPen lineWidth="1.0" lineStyle="Double"/>
+					<bottomPen lineWidth="1.0" lineStyle="Double"/>
+					<rightPen lineWidth="1.0" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none"/>
+				<textFieldExpression><![CDATA[$F{numeroReferencia}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;-#,##0.00">
+				<reportElement x="452" y="246" width="103" height="41" uuid="126dd7bd-c13d-416b-8c73-a1a828ea5fe4"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0" lineStyle="Double"/>
+					<leftPen lineWidth="1.0" lineStyle="Double"/>
+					<bottomPen lineWidth="1.0" lineStyle="Double"/>
+					<rightPen lineWidth="1.0" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none"/>
+				<textFieldExpression><![CDATA[$F{valorMulta}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;-#,##0.00">
+				<reportElement x="452" y="287" width="103" height="41" uuid="0868c03a-0e98-4eae-a983-3a296b1569b0"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0" lineStyle="Double"/>
+					<leftPen lineWidth="1.0" lineStyle="Double"/>
+					<bottomPen lineWidth="1.0" lineStyle="Double"/>
+					<rightPen lineWidth="1.0" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none"/>
+				<textFieldExpression><![CDATA[$F{valorJuros}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;-#,##0.00">
+				<reportElement x="452" y="328" width="103" height="41" uuid="534a3224-5ac5-4201-a012-01bb138a1f6c"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0" lineStyle="Double"/>
+					<leftPen lineWidth="1.0" lineStyle="Double"/>
+					<bottomPen lineWidth="1.0" lineStyle="Double"/>
+					<rightPen lineWidth="1.0" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none"/>
+				<textFieldExpression><![CDATA[$F{valorTotal}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="133" y="53" width="219" height="18" uuid="5f8ac72c-ae01-4576-8a08-39ca720d7e40"/>
+				<textElement textAlignment="Justified">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Documento de Arrecadação de Receitas Federais]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="287" width="352" height="20" uuid="8eb17fc3-fc8d-4e73-be95-530cceefbc5d"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Double"/>
+					<leftPen lineWidth="1.0" lineStyle="Double"/>
+					<rightPen lineWidth="1.0" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[ATENÇÃO]]></text>
+			</staticText>
+			<textField pattern="#,##0.00;-#,##0.00">
+				<reportElement x="452" y="205" width="103" height="41" uuid="c494ce45-b69d-4353-98d4-cb02bf885ca1"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0" lineStyle="Double"/>
+					<leftPen lineWidth="1.0" lineStyle="Double"/>
+					<bottomPen lineWidth="1.0" lineStyle="Double"/>
+					<rightPen lineWidth="1.0" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none"/>
+				<textFieldExpression><![CDATA[$F{valorPrincipal}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="452" y="164" width="103" height="41" uuid="dbeb87f8-99e5-4db6-ba55-394459c8b864"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0" lineStyle="Double"/>
+					<leftPen lineWidth="1.0" lineStyle="Double"/>
+					<bottomPen lineWidth="1.0" lineStyle="Double"/>
+					<rightPen lineWidth="1.0" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none"/>
+				<textFieldExpression><![CDATA[$F{dataVencimento}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

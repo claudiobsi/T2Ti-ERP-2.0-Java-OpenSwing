@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!--
+        Define a profundidade máxima para a árvore "outer join" para
+        associações (one-to-one, many-to-one). O valor 0 desativa o outer join.
+        Valor recomendado: entre 0 e 3
+        -->
+        <property name="hibernate.max_fetch_depth">1</property>
+        <!-- Habilita a busca por "outer join" -->
+        <property name="hibernate.use_outer_join">true</property>
+        <!--
+        Número máximo de conexões JDBC - não deve ser utilizado em produção.
+        Será criado arquivo específico com as definições do Pool de conexões.
+        -->
+        <property name="connection.pool_size">10</property>
+        <!-- Dialeto SQL -->
+        <property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+        <!--
+        Gerenciamento automatico da sessão pelo Hibernate (session-per-request).
+        -->
+        <property name="current_session_context_class">thread</property>
+        <!-- Disable the second-level cache  -->
+        <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+        <property name="hibernate.cache.use_second_level_cache">false</property>
+        <property name="hibernate.cache.use_query_cache">false</property>
+        <!--<property name="hibernate.connection.isolation">2</property>-->
+        <!-- Mostra o código SQL no console -->
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+
+        <!-- classes mapeadas -->
+        <mapping class="com.t2tierp.cadastros.java.CargoVO"/>
+        <mapping class="com.t2tierp.cadastros.java.CfopVO"/>
+        <mapping class="com.t2tierp.cadastros.java.ColaboradorVO"/>
+        <mapping class="com.t2tierp.cadastros.java.ContadorVO"/>
+        <mapping class="com.t2tierp.cadastros.java.CsosnAVO"/>
+        <mapping class="com.t2tierp.cadastros.java.CsosnBVO"/>
+        <mapping class="com.t2tierp.cadastros.java.CstCofinsVO"/>
+        <mapping class="com.t2tierp.cadastros.java.CstIcmsAVO"/>
+        <mapping class="com.t2tierp.cadastros.java.CstIcmsBVO"/>
+        <mapping class="com.t2tierp.cadastros.java.CstIpiVO"/>
+        <mapping class="com.t2tierp.cadastros.java.CstPisVO"/>
+        <mapping class="com.t2tierp.cadastros.java.EfdTabela435VO"/>
+        <mapping class="com.t2tierp.cadastros.java.EmpresaEnderecoVO"/>
+        <mapping class="com.t2tierp.cadastros.java.EmpresaPessoaVO"/>
+        <mapping class="com.t2tierp.cadastros.java.EmpresaTransporteItinerarioVO"/>
+        <mapping class="com.t2tierp.cadastros.java.EmpresaTransporteVO"/>
+        <mapping class="com.t2tierp.cadastros.java.EmpresaVO"/>
+        <mapping class="com.t2tierp.cadastros.java.EstadoCivilVO"/>
+        <mapping class="com.t2tierp.cadastros.java.FpasVO"/>
+        <mapping class="com.t2tierp.cadastros.java.FuncaoVO"/>
+        <mapping class="com.t2tierp.cadastros.java.IndiceEconomicoVO"/>
+        <mapping class="com.t2tierp.cadastros.java.NivelFormacaoVO"/>
+        <mapping class="com.t2tierp.cadastros.java.OperadoraPlanoSaudeVO"/>
+        <mapping class="com.t2tierp.cadastros.java.PaisVO"/>
+        <mapping class="com.t2tierp.cadastros.java.PapelFuncaoVO"/>
+        <mapping class="com.t2tierp.cadastros.java.PapelVO"/>
+        <mapping class="com.t2tierp.cadastros.java.PessoaContatoVO"/>
+        <mapping class="com.t2tierp.cadastros.java.PessoaEnderecoVO"/>
+        <mapping class="com.t2tierp.cadastros.java.PessoaFisicaVO"/>
+        <mapping class="com.t2tierp.cadastros.java.PessoaJuridicaVO"/>
+        <mapping class="com.t2tierp.cadastros.java.PessoaTelefoneVO"/>
+        <mapping class="com.t2tierp.cadastros.java.PessoaVO"/>
+        <mapping class="com.t2tierp.cadastros.java.SefipCodigoRecolhimentoVO"/>
+        <mapping class="com.t2tierp.cadastros.java.SetorVO"/>
+        <mapping class="com.t2tierp.cadastros.java.SindicatoVO"/>
+        <mapping class="com.t2tierp.cadastros.java.SituacaoColaboradorVO"/>
+        <mapping class="com.t2tierp.cadastros.java.TipoAdmissaoVO"/>
+        <mapping class="com.t2tierp.cadastros.java.TipoColaboradorVO"/>
+        <mapping class="com.t2tierp.cadastros.java.TipoReceitaDipiVO"/>
+        <mapping class="com.t2tierp.cadastros.java.UsuarioVO"/>
+        <mapping class="com.t2tierp.cadastros.java.UfVO"/>
+        <mapping class="com.t2tierp.cadastros.java.VendedorVO"/>
+        
+        <mapping class="com.t2tierp.comissao.java.ComissaoPerfilVO"/>
+
+        <mapping class="com.t2tierp.contabilidade.java.AidfAimdfVO"/>
+        <mapping class="com.t2tierp.contabilidade.java.CentroResultadoVO"/>
+        <mapping class="com.t2tierp.contabilidade.java.ContaContabilRateioVO"/>
+        <mapping class="com.t2tierp.contabilidade.java.ContabilContaVO"/>
+        <mapping class="com.t2tierp.contabilidade.java.ContabilDreCabecalhoVO"/>
+        <mapping class="com.t2tierp.contabilidade.java.ContabilDreDetalheVO"/>
+        <mapping class="com.t2tierp.contabilidade.java.ContabilEncerramentoExeCabVO"/>
+        <mapping class="com.t2tierp.contabilidade.java.ContabilEncerramentoExeDetVO"/>
+        <mapping class="com.t2tierp.contabilidade.java.ContabilFechamentoVO"/>
+        <mapping class="com.t2tierp.contabilidade.java.ContabilHistoricoVO"/>
+        <mapping class="com.t2tierp.contabilidade.java.ContabilIndiceVO"/>
+        <mapping class="com.t2tierp.contabilidade.java.ContabilIndiceValorVO"/>
+        <mapping class="com.t2tierp.contabilidade.java.ContabilLancamentoCabecalhoVO"/>
+        <mapping class="com.t2tierp.contabilidade.java.ContabilLancamentoDetalheVO"/>
+        <mapping class="com.t2tierp.contabilidade.java.ContabilLancamentoOrcadoVO"/>
+        <mapping class="com.t2tierp.contabilidade.java.ContabilLancamentoPadraoVO"/>
+        <mapping class="com.t2tierp.contabilidade.java.ContabilLivroVO"/>
+        <mapping class="com.t2tierp.contabilidade.java.ContabilLoteVO"/>
+        <mapping class="com.t2tierp.contabilidade.java.ContabilParametroVO"/>
+        <mapping class="com.t2tierp.contabilidade.java.ContabilTermoVO"/>
+        <mapping class="com.t2tierp.contabilidade.java.CtResultadoNtFinanceiraVO"/>
+        <mapping class="com.t2tierp.contabilidade.java.EncerraCentroResultadoVO"/>
+        <mapping class="com.t2tierp.contabilidade.java.FapVO"/>
+        <mapping class="com.t2tierp.contabilidade.java.LancaCentroResultadoVO"/>
+        <mapping class="com.t2tierp.contabilidade.java.PlanoCentroResultadoVO"/>
+        <mapping class="com.t2tierp.contabilidade.java.PlanoContaRefSpedVO"/>
+        <mapping class="com.t2tierp.contabilidade.java.PlanoContaVO"/>
+        <mapping class="com.t2tierp.contabilidade.java.RateioCentroResultadoCabVO"/>
+        <mapping class="com.t2tierp.contabilidade.java.RateioCentroResultadoDetVO"/>
+        <mapping class="com.t2tierp.contabilidade.java.RegistroCartorioVO"/>
+        <mapping class="com.t2tierp.contabilidade.java.ViewBalancoPatrimonialVO"/>
+        <mapping class="com.t2tierp.contabilidade.java.ViewDfcVO"/>
+
+        <mapping class="com.t2tierp.financeiro.java.NaturezaFinanceiraVO"/>
+        <mapping class="com.t2tierp.financeiro.java.PlanoNaturezaFinanceiraVO"/>
+        <mapping class="com.t2tierp.financeiro.java.ViewFinMovimentoCaixaBancoID"/>
+        <mapping class="com.t2tierp.financeiro.java.ViewFinMovimentoCaixaBancoVO"/>
+                
+    </session-factory>
+</hibernate-configuration>

@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="sub_tratamentos" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="bcf38cda-d6d3-4543-beec-84a76a827ac7">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="horaMarcacao" class="java.lang.String">
+		<fieldDescription><![CDATA[horaMarcacao]]></fieldDescription>
+	</field>
+	<field name="tipoRegistro" class="java.lang.String">
+		<fieldDescription><![CDATA[tipoRegistro]]></fieldDescription>
+	</field>
+	<field name="justificativa" class="java.lang.String">
+		<fieldDescription><![CDATA[justificativa]]></fieldDescription>
+	</field>
+	<detail>
+		<band height="14" splitType="Stretch">
+			<textField pattern="HH.mm">
+				<reportElement x="337" y="0" width="31" height="14" isRemoveLineWhenBlank="true" uuid="056aef24-aad3-4dfa-a258-d4bec0046dca"/>
+				<box>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{horaMarcacao}.substring(0,5)]]></textFieldExpression>
+			</textField>
+			<textField pattern="HH.mm">
+				<reportElement x="368" y="0" width="28" height="14" isRemoveLineWhenBlank="true" uuid="a0663385-deeb-46fb-91af-36d1c0717ce1"/>
+				<box>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tipoRegistro}]]></textFieldExpression>
+			</textField>
+			<textField pattern="HH.mm">
+				<reportElement x="396" y="0" width="159" height="14" isRemoveLineWhenBlank="true" uuid="18ba3549-79be-4331-9cb1-8293dc7ec6b2"/>
+				<box>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{justificativa}]]></textFieldExpression>
+			</textField>
+			<textField pattern="HH.mm" isBlankWhenNull="true">
+				<reportElement x="164" y="0" width="31" height="14" uuid="fd97dd43-7f8e-4efc-b19a-4c334cc0c2f9"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+			</textField>
+			<textField pattern="00" isBlankWhenNull="true">
+				<reportElement x="0" y="0" width="18" height="14" uuid="3f50de7e-716f-42d7-bffc-9dad78f7bc02"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<textField pattern="HH.mm" isBlankWhenNull="true">
+				<reportElement x="18" y="0" width="28" height="14" uuid="f97b7d8e-ea05-48e6-8bf1-87971bd0de56"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+			</textField>
+			<textField pattern="HH.mm" isBlankWhenNull="true">
+				<reportElement x="288" y="0" width="31" height="14" uuid="9a2a74af-265a-4a4a-b33c-269fcc36fae6"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+			</textField>
+			<textField pattern="HH.mm" isBlankWhenNull="true">
+				<reportElement x="103" y="0" width="29" height="14" uuid="9c1ebb1d-8721-4e16-8243-2ba81361f209"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+			</textField>
+			<textField pattern="HH.mm" isBlankWhenNull="true">
+				<reportElement x="75" y="0" width="28" height="14" uuid="35126f31-8028-42e9-9049-87dd64ad4844"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+			</textField>
+			<textField pattern="HH.mm" isBlankWhenNull="true">
+				<reportElement x="132" y="0" width="32" height="14" uuid="be6ce6d1-2afc-4942-bb71-a998832f3e5a"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+			</textField>
+			<textField pattern="HH.mm" isBlankWhenNull="true">
+				<reportElement x="195" y="0" width="31" height="14" uuid="b0659eb6-13ff-402b-88fd-567413638677"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+			</textField>
+			<textField pattern="HH.mm" isBlankWhenNull="true">
+				<reportElement x="226" y="0" width="31" height="14" uuid="6e65045c-00d4-46f3-9ed6-840777307322"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+			</textField>
+			<textField pattern="HH.mm" isBlankWhenNull="true">
+				<reportElement x="257" y="0" width="31" height="14" uuid="719d5edc-a9e7-442f-aab5-0eb027342fbf"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+			</textField>
+			<textField pattern="HH.mm" isBlankWhenNull="true">
+				<reportElement x="46" y="0" width="29" height="14" uuid="71d892e4-931d-48f7-aa6e-aa380b27f5a5"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+			</textField>
+			<textField pattern="HH.mm" isBlankWhenNull="true">
+				<reportElement x="319" y="0" width="18" height="14" uuid="ba5e2d81-f17d-40bc-9986-bddbe11e3e5e"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

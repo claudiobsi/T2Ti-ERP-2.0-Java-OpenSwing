@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!--
+        Define a profundidade máxima para a árvore "outer join" para
+        associações (one-to-one, many-to-one). O valor 0 desativa o outer join.
+        Valor recomendado: entre 0 e 3
+        -->
+        <property name="hibernate.max_fetch_depth">1</property>
+        <!-- Habilita a busca por "outer join" -->
+        <property name="hibernate.use_outer_join">true</property>
+        <!--
+        Número máximo de conexões JDBC - não deve ser utilizado em produção.
+        Será criado arquivo específico com as definições do Pool de conexões.
+        -->
+        <property name="connection.pool_size">10</property>
+        <!-- Dialeto SQL -->
+        <property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+        <!--
+        Gerenciamento automatico da sessão pelo Hibernate (session-per-request).
+        -->
+        <property name="current_session_context_class">thread</property>
+        <!-- Disable the second-level cache  -->
+        <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+        <property name="hibernate.cache.use_second_level_cache">false</property>
+        <property name="hibernate.cache.use_query_cache">false</property>
+        <!--<property name="hibernate.connection.isolation">2</property>-->
+        <!-- Mostra o código SQL no console -->
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+
+        <!-- classes mapeadas -->
+        <mapping class="com.t2tierp.cadastros.java.AlmoxarifadoVO"/>
+        <mapping class="com.t2tierp.cadastros.java.AtividadeForCliVO"/>
+        <mapping class="com.t2tierp.cadastros.java.CargoVO"/>
+        <mapping class="com.t2tierp.cadastros.java.CfopVO"/>
+        <mapping class="com.t2tierp.cadastros.java.ClienteVO"/>
+        <mapping class="com.t2tierp.cadastros.java.ColaboradorVO"/>
+        <mapping class="com.t2tierp.cadastros.java.ContadorVO"/>
+        <mapping class="com.t2tierp.cadastros.java.CnaeVO"/>
+        <mapping class="com.t2tierp.cadastros.java.EmpresaCnaeVO"/>
+        <mapping class="com.t2tierp.cadastros.java.EmpresaContatoVO"/>
+        <mapping class="com.t2tierp.cadastros.java.EmpresaEnderecoVO"/>
+        <mapping class="com.t2tierp.cadastros.java.EmpresaPessoaVO"/>
+        <mapping class="com.t2tierp.cadastros.java.EmpresaProdutoVO"/>
+        <mapping class="com.t2tierp.cadastros.java.EmpresaTelefoneVO"/>
+        <mapping class="com.t2tierp.cadastros.java.EmpresaTransporteItinerarioVO"/>
+        <mapping class="com.t2tierp.cadastros.java.EmpresaTransporteVO"/>
+        <mapping class="com.t2tierp.cadastros.java.EmpresaVO"/>
+        <mapping class="com.t2tierp.cadastros.java.EstadoCivilVO"/>
+        <mapping class="com.t2tierp.cadastros.java.FornecedorVO"/>
+        <mapping class="com.t2tierp.cadastros.java.FpasVO"/>
+        <mapping class="com.t2tierp.cadastros.java.FuncaoVO"/>
+        <mapping class="com.t2tierp.cadastros.java.NivelFormacaoVO"/>
+        <mapping class="com.t2tierp.cadastros.java.PapelFuncaoVO"/>
+        <mapping class="com.t2tierp.cadastros.java.PapelVO"/>
+        <mapping class="com.t2tierp.cadastros.java.PessoaClienteVO"/>
+        <mapping class="com.t2tierp.cadastros.java.PessoaAlteracaoVO"/>
+        <mapping class="com.t2tierp.cadastros.java.PessoaContatoVO"/>
+        <mapping class="com.t2tierp.cadastros.java.PessoaEnderecoVO"/>
+        <mapping class="com.t2tierp.cadastros.java.PessoaFisicaVO"/>
+        <mapping class="com.t2tierp.cadastros.java.PessoaJuridicaVO"/>
+        <mapping class="com.t2tierp.cadastros.java.PessoaTelefoneVO"/>
+        <mapping class="com.t2tierp.cadastros.java.PessoaVO"/>
+        <mapping class="com.t2tierp.cadastros.java.ProdutoGrupoVO"/>
+        <mapping class="com.t2tierp.cadastros.java.ProdutoMarcaVO"/>
+        <mapping class="com.t2tierp.cadastros.java.ProdutoSubgrupoVO"/>
+        <mapping class="com.t2tierp.cadastros.java.ProdutoVO"/>
+        <mapping class="com.t2tierp.cadastros.java.SetorVO"/>
+        <mapping class="com.t2tierp.cadastros.java.SindicatoVO"/>
+        <mapping class="com.t2tierp.cadastros.java.SituacaoColaboradorVO"/>
+        <mapping class="com.t2tierp.cadastros.java.SituacaoForCliVO"/>
+        <mapping class="com.t2tierp.cadastros.java.TipoAdmissaoVO"/>
+        <mapping class="com.t2tierp.cadastros.java.TipoColaboradorVO"/>
+        <mapping class="com.t2tierp.cadastros.java.TransportadoraVO"/>
+        <mapping class="com.t2tierp.cadastros.java.UnidadeProdutoVO"/>
+        <mapping class="com.t2tierp.cadastros.java.UsuarioVO"/>
+        <mapping class="com.t2tierp.cadastros.java.VendedorVO"/>
+
+        <mapping class="com.t2tierp.comissao.java.ComissaoPerfilVO"/>
+        
+        <mapping class="com.t2tierp.cte.java.CteAereoVO"/>
+        <mapping class="com.t2tierp.cte.java.CteAquaviarioBalsaVO"/>
+        <mapping class="com.t2tierp.cte.java.CteAquaviarioVO"/>
+        <mapping class="com.t2tierp.cte.java.CteCabecalhoVO"/>
+        <mapping class="com.t2tierp.cte.java.CteCargaVO"/>
+        <mapping class="com.t2tierp.cte.java.CteComponenteVO"/>
+        <mapping class="com.t2tierp.cte.java.CteDestinatarioVO"/>
+        <mapping class="com.t2tierp.cte.java.CteDocumentoAnteriorIdVO"/>
+        <mapping class="com.t2tierp.cte.java.CteDocumentoAnteriorVO"/>
+        <mapping class="com.t2tierp.cte.java.CteDuplicataVO"/>
+        <mapping class="com.t2tierp.cte.java.CteDutoviarioVO"/>
+        <mapping class="com.t2tierp.cte.java.CteEmitenteVO"/>
+        <mapping class="com.t2tierp.cte.java.CteExpedidorVO"/>
+        <mapping class="com.t2tierp.cte.java.CteFaturaVO"/>
+        <mapping class="com.t2tierp.cte.java.CteFerroviarioFerroviaVO"/>
+        <mapping class="com.t2tierp.cte.java.CteFerroviarioVO"/>
+        <mapping class="com.t2tierp.cte.java.CteFerroviarioVagaoVO"/>
+        <mapping class="com.t2tierp.cte.java.CteInfNfCargaLacreVO"/>
+        <mapping class="com.t2tierp.cte.java.CteInfNfTransporteLacreVO"/>
+        <mapping class="com.t2tierp.cte.java.CteInformacaoNfCargaVO"/>
+        <mapping class="com.t2tierp.cte.java.CteInformacaoNfOutrosVO"/>
+        <mapping class="com.t2tierp.cte.java.CteInformacaoNfTransporteVO"/>
+        <mapping class="com.t2tierp.cte.java.CteLocalColetaVO"/>
+        <mapping class="com.t2tierp.cte.java.CteLocalEntregaVO"/>
+        <mapping class="com.t2tierp.cte.java.CteMultimodalVO"/>
+        <mapping class="com.t2tierp.cte.java.CtePassagemVO"/>
+        <mapping class="com.t2tierp.cte.java.CtePerigosoVO"/>
+        <mapping class="com.t2tierp.cte.java.CteRecebedorVO"/>
+        <mapping class="com.t2tierp.cte.java.CteRemetenteVO"/>
+        <mapping class="com.t2tierp.cte.java.CteRodoviarioLacreVO"/>
+        <mapping class="com.t2tierp.cte.java.CteRodoviarioMotoristaVO"/>
+        <mapping class="com.t2tierp.cte.java.CteRodoviarioOccVO"/>
+        <mapping class="com.t2tierp.cte.java.CteRodoviarioPedagioVO"/>
+        <mapping class="com.t2tierp.cte.java.CteRodoviarioVO"/>
+        <mapping class="com.t2tierp.cte.java.CteRodoviarioVeiculoVO"/>
+        <mapping class="com.t2tierp.cte.java.CteSeguroVO"/>
+        <mapping class="com.t2tierp.cte.java.CteTomadorVO"/>
+        <mapping class="com.t2tierp.cte.java.CteVeiculoNovoVO"/>
+        
+        <mapping class="com.t2tierp.nfe.java.NfeCabecalhoVO"/>
+        <mapping class="com.t2tierp.nfe.java.NfeCanaDeducoesSafraVO"/>
+        <mapping class="com.t2tierp.nfe.java.NfeCanaFornecimentoDiarioVO"/>
+        <mapping class="com.t2tierp.nfe.java.NfeCanaVO"/>
+        <mapping class="com.t2tierp.nfe.java.NfeConfiguracaoVO"/>
+        <mapping class="com.t2tierp.nfe.java.NfeCteReferenciadoVO"/>
+        <mapping class="com.t2tierp.nfe.java.NfeCupomFiscalReferenciadoVO"/>
+        <mapping class="com.t2tierp.nfe.java.NfeDeclaracaoImportacaoVO"/>
+        <mapping class="com.t2tierp.nfe.java.NfeDestinatarioVO"/>
+        <mapping class="com.t2tierp.nfe.java.NfeDetEspecificoArmamentoVO"/>
+        <mapping class="com.t2tierp.nfe.java.NfeDetEspecificoCombustivelVO"/>
+        <mapping class="com.t2tierp.nfe.java.NfeDetEspecificoMedicamentoVO"/>
+        <mapping class="com.t2tierp.nfe.java.NfeDetEspecificoVeiculoVO"/>
+        <mapping class="com.t2tierp.nfe.java.NfeDetalheImpostoCofinsVO"/>
+        <mapping class="com.t2tierp.nfe.java.NfeDetalheImpostoIcmsVO"/>
+        <mapping class="com.t2tierp.nfe.java.NfeDetalheImpostoIiVO"/>
+        <mapping class="com.t2tierp.nfe.java.NfeDetalheImpostoIpiVO"/>
+        <mapping class="com.t2tierp.nfe.java.NfeDetalheImpostoIssqnVO"/>
+        <mapping class="com.t2tierp.nfe.java.NfeDetalheImpostoPisVO"/>
+        <mapping class="com.t2tierp.nfe.java.NfeDetalheVO"/>
+        <mapping class="com.t2tierp.nfe.java.NfeDuplicataVO"/>
+        <mapping class="com.t2tierp.nfe.java.NfeEmitenteVO"/>
+        <mapping class="com.t2tierp.nfe.java.NfeFaturaVO"/>
+        <mapping class="com.t2tierp.nfe.java.NfeImportacaoDetalheVO"/>
+        <mapping class="com.t2tierp.nfe.java.NfeLocalEntregaVO"/>
+        <mapping class="com.t2tierp.nfe.java.NfeLocalRetiradaVO"/>
+        <mapping class="com.t2tierp.nfe.java.NfeNfReferenciadaVO"/>
+        <mapping class="com.t2tierp.nfe.java.NfeNumeroVO"/>
+        <mapping class="com.t2tierp.nfe.java.NfeProcessoReferenciadoVO"/>
+        <mapping class="com.t2tierp.nfe.java.NfeProdRuralReferenciadaVO"/>
+        <mapping class="com.t2tierp.nfe.java.NfeReferenciadaVO"/>
+        <mapping class="com.t2tierp.nfe.java.NfeTransporteReboqueVO"/>
+        <mapping class="com.t2tierp.nfe.java.NfeTransporteVO"/>
+        <mapping class="com.t2tierp.nfe.java.NfeTransporteVolumeLacreVO"/>
+        <mapping class="com.t2tierp.nfe.java.NfeTransporteVolumeVO"/>
+        
+        <mapping class="com.t2tierp.tributacao.java.TributConfiguraOfGtVO"/>
+        <mapping class="com.t2tierp.tributacao.java.TributGrupoTributarioVO"/>
+        <mapping class="com.t2tierp.tributacao.java.TributIcmsCustomCabVO"/>
+        <mapping class="com.t2tierp.tributacao.java.TributIcmsCustomDetVO"/>
+        <mapping class="com.t2tierp.tributacao.java.TributIcmsUfVO"/>
+        <mapping class="com.t2tierp.tributacao.java.TributIssVO"/>
+        <mapping class="com.t2tierp.tributacao.java.TributOperacaoFiscalVO"/>
+        
+        <mapping class="com.t2tierp.vendas.java.CondicoesPagamentoVO"/>
+        <mapping class="com.t2tierp.vendas.java.NotaFiscalModeloVO"/>
+        <mapping class="com.t2tierp.vendas.java.NotaFiscalTipoVO"/>
+        <mapping class="com.t2tierp.vendas.java.VendaCabecalhoVO"/>
+        <mapping class="com.t2tierp.vendas.java.VendaOrcamentoCabecalhoVO"/>
+        <mapping class="com.t2tierp.vendas.java.VendaRomaneioEntregaVO"/>
+                
+    </session-factory>
+</hibernate-configuration>

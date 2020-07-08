@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="os_orcamento" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isFloatColumnFooter="true" uuid="8e842b86-5b1b-4714-9ae6-1a79b2d0d136">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="NOME_CLIENTE" class="java.lang.String"/>
+	<field name="produto.nome" class="java.lang.String"/>
+	<field name="quantidade" class="java.math.BigDecimal"/>
+	<field name="valorUnitario" class="java.math.BigDecimal"/>
+	<field name="valorSubtotal" class="java.math.BigDecimal"/>
+	<field name="valorDesconto" class="java.math.BigDecimal"/>
+	<field name="valorTotal" class="java.math.BigDecimal"/>
+	<variable name="VALOR_TOTAL" class="java.math.BigDecimal" incrementType="Report" calculation="Sum">
+		<variableExpression><![CDATA[$F{valorTotal}]]></variableExpression>
+	</variable>
+	<title>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="30" uuid="77064612-e425-4e39-81f3-1c992185df46"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ORDEM DE SERVIÇO - ORÇAMENTO]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="30">
+			<textField>
+				<reportElement x="0" y="0" width="555" height="30" uuid="035dc89c-7901-44fc-92e4-4454662f143e"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Cliente: " + $P{NOME_CLIENTE}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="184" height="20" uuid="1a6603af-fbb5-4916-80ed-b7931a5cb02b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Produto / Serviço]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="184" y="0" width="61" height="20" uuid="6002b053-910c-4838-9682-1a7caf18a4bd"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Qtde]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="245" y="0" width="70" height="20" uuid="2927f9de-2c3e-48e4-8a70-9b02f6da8774"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Vlr. Unitário]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="315" y="0" width="70" height="20" uuid="ed19329d-cd07-4462-b955-b974ac119f53"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[SubTotal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="455" y="0" width="100" height="20" uuid="ad6624bf-8111-4206-9371-91d9ab174a43"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Vlr. Total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="385" y="0" width="70" height="20" uuid="d0ac98e0-7afe-4cb5-8dc3-2349ac9d393f"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Desconto]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="184" height="20" uuid="64cfb45c-b16e-47a7-9ac7-b1a0530bbf3a"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{produto.nome}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.000">
+				<reportElement x="184" y="0" width="61" height="20" uuid="39710a75-d52d-4165-9c32-887378016713"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{quantidade}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;-#,##0.00">
+				<reportElement x="245" y="0" width="70" height="20" uuid="3359baa2-8485-41b9-b6fa-8ec21732c456"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{valorUnitario}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;-#,##0.00">
+				<reportElement x="315" y="0" width="70" height="20" uuid="14762743-b422-46e2-ab01-d803a37fbb62"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{valorSubtotal}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;-#,##0.00">
+				<reportElement x="455" y="0" width="100" height="20" uuid="62f03fcc-fc03-49db-a5c0-025937272124"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{valorTotal}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;-#,##0.00">
+				<reportElement x="385" y="0" width="70" height="20" uuid="708fe5fe-30fd-4962-afd0-6b6ff7ce57c3"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{valorDesconto}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="40">
+			<textField pattern="#,##0.00;-#,##0.00">
+				<reportElement x="455" y="20" width="100" height="20" uuid="eb5a1e2f-9619-4a5b-b48b-fd158ee18787"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{VALOR_TOTAL}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="260" y="20" width="195" height="20" uuid="61cbb23d-01a8-48e0-9f1c-96f25775c4d4"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Valor Total Orçamento:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="0" width="555" height="1" uuid="09543d7d-2923-46e8-b042-669d976e3d21"/>
+			</line>
+		</band>
+	</columnFooter>
+</jasperReport>

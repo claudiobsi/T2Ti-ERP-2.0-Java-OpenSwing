@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:Texgit xmlns:ns2="http://gilmatryx.googlepages.com/Texgit">
+    <FlatFile>
+        <layout>
+            <name>Arquivo Sintegra</name>
+            <version>1</version>
+            <description>Layout de geração do arquivo sintegra - convênio 57/95</description>
+        </layout>
+        <GroupOfRecords>
+            <Record name="Tipo10">
+                <GroupOfFields>
+                    <IdType type="INTEGER" length="2" value="10" name="TipoRegistro" position="1"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="14" name="CNPJ"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="14" name="InscricaoEstadual"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="35" name="NomeContribuinte"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="30" name="Municipio"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="2" name="UF"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="10" name="Fax"/>
+					<Field padding="ZERO_LEFT" type="DATE" length="8" name="DataInicial">
+						<Formatter type="DATE" format="yyyyMMdd" />
+					</Field>
+					<Field padding="ZERO_LEFT" type="DATE" length="8" name="DataFinal">
+						<Formatter type="DATE" format="yyyyMMdd" />
+					</Field>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="1" name="CodigoIdentificaoConvenio"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="1" name="CodigoIdentificaoNaturezaOperacao"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="1" name="CodigoFinalidadeArquivo"/>
+                </GroupOfFields>
+            </Record>
+            <Record name="Tipo11">
+                <GroupOfFields>
+                    <IdType type="INTEGER" length="2" value="11" name="TipoRegistro" position="1"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="34" name="Logradouro"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="5" name="Numero"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="22" name="Complemento"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="15" name="Bairro"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="8" name="CEP"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="28" name="NomeContato"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="12" name="Telefone"/>
+                </GroupOfFields>
+            </Record>
+            <Record name="Tipo50" repeatable="true" >
+                <GroupOfFields>
+                    <IdType type="INTEGER" length="2" value="50" name="TipoRegistro" position="1"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="14" name="CNPJ"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="14" name="InscricaoEstadual"/>
+					<Field padding="ZERO_LEFT" type="DATE" length="8" name="DataEmissao">
+						<Formatter type="DATE" format="yyyyMMdd" />
+					</Field>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="2" name="UF"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="2" name="CodigoModelo"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="3" name="Serie"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="6" name="NumeroNota"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="4" name="CFOP"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="1" name="Emitente"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="13" name="ValorTotal"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="13" name="BaseCalculoIcms"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="13" name="ValorIcms"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="13" name="ValorIsento"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="13" name="ValorOutras"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="4" name="AliquotaIcms"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="1" name="Situacao"/>
+                </GroupOfFields>
+				<GroupOfInnerRecords>
+					<Record name="Tipo54">
+						<GroupOfFields>
+							<IdType name="IDReg" value="54" length="2" position="1" />
+							<Field padding="ZERO_LEFT" type="LONG" length="14" name="CNPJ"/>
+							<Field padding="ZERO_LEFT" type="INTEGER" length="2" name="Modelo"/>
+							<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="3" name="Serie"/>
+							<Field padding="ZERO_LEFT" type="INTEGER" length="6" name="NumeroNf"/>
+							<Field padding="ZERO_LEFT" type="INTEGER" length="4" name="Cfop"/>
+							<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="3" name="Cst"/>
+							<Field padding="ZERO_LEFT" type="INTEGER" length="3" name="NumeroItem"/>
+							<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="14" name="CodigoProduto"/>
+							<Field padding="ZERO_LEFT" type="LONG" length="11" name="Quantidade"/>
+							<Field padding="ZERO_LEFT" type="LONG" length="12" name="ValorProduto"/>
+							<Field padding="ZERO_LEFT" type="LONG" length="12" name="ValorDesconto"/>
+							<Field padding="ZERO_LEFT" type="LONG" length="12" name="BaseCalculoIcms"/>
+							<Field padding="ZERO_LEFT" type="LONG" length="12" name="BaseCalculoIcmsSt"/>
+							<Field padding="ZERO_LEFT" type="LONG" length="12" name="ValorIpi"/>
+							<Field padding="ZERO_LEFT" type="LONG" length="4" name="AliquotaIcms"/>
+						</GroupOfFields>
+					</Record>
+				</GroupOfInnerRecords>
+            </Record>
+            <Record name="Tipo60M" repeatable="true" >
+                <GroupOfFields>
+                    <IdType type="INTEGER" length="3" value="60M" name="TipoRegistro" position="1"/>
+					<Field padding="ZERO_LEFT" type="DATE" length="8" name="DataEmissao">
+						<Formatter type="DATE" format="yyyyMMdd" />
+					</Field>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="20" name="Serie"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="3" name="NumeroOrdemEquipamento"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="2" name="ModeloDocumentoFiscal"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="6" name="PrimeiroCOO"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="6" name="UltimoCOO"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="6" name="NumeroCRZ"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="3" name="CRO"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="16" name="ValorVendaBruta"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="16" name="ValorTotalizadorGeral"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" value=" " length="37" name="Brancos"/>
+                </GroupOfFields>
+				<GroupOfInnerRecords>
+					<Record name="Tipo60A">
+						<GroupOfFields>
+							<IdType name="IDReg" value="60A" length="3" position="1" />
+							<Field padding="ZERO_LEFT" type="DATE" length="8" name="DataEmissao">
+								<Formatter type="DATE" format="yyyyMMdd" />
+							</Field>
+							<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="20" name="NumeroSerie"/>
+							<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="4" name="SituacaoTributaria"/>
+							<Field padding="ZERO_LEFT" type="LONG" length="13" name="ValorAcumuladoTotalizadorParcial"/>
+							<Field padding="WHITE_SPACE_RIGHT" type="STRING" value=" " length="79" name="Brancos"/>
+						</GroupOfFields>
+					</Record>
+				</GroupOfInnerRecords>
+            </Record>
+			
+            <Record name="Tipo60D" repeatable="true" >
+                <GroupOfFields>
+                    <IdType type="INTEGER" length="3" value="60D" name="TipoRegistro" position="1"/>
+					<Field padding="ZERO_LEFT" type="DATE" length="8" name="DataEmissao">
+						<Formatter type="DATE" format="yyyyMMdd" />
+					</Field>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="20" name="NumeroSerie"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="14" name="CodigoProduto"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="13" name="Quantidade"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="16" name="Valor"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="16" name="BaseCalculoIcms"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="4" name="SituacaoTributaria"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="13" name="ValorIcms"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" value=" " length="19" name="Brancos"/>
+                </GroupOfFields>
+            </Record>
+
+            <Record name="Tipo60R" repeatable="true" >
+                <GroupOfFields>
+                    <IdType type="INTEGER" length="3" value="60R" name="TipoRegistro" position="1"/>
+					<Field padding="ZERO_LEFT" type="DATE" length="6" name="DataEmissao">
+						<Formatter type="DATE" format="MMyyyy" />
+					</Field>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="14" name="CodigoProduto"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="13" name="Quantidade"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="16" name="Valor"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="16" name="BaseCalculoIcms"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="4" name="SituacaoTributaria"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" value=" " length="54" name="Brancos"/>
+                </GroupOfFields>
+            </Record>
+
+            <Record name="Tipo61" repeatable="true" >
+                <GroupOfFields>
+                    <IdType type="INTEGER" length="2" value="61" name="TipoRegistro" position="1"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" value=" " length="14" name="Brancos1"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" value=" " length="14" name="Brancos2"/>
+					<Field padding="ZERO_LEFT" type="DATE" length="6" name="DataEmissao">
+						<Formatter type="DATE" format="yyyyMMdd" />
+					</Field>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="2" name="Modelo"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="3" name="Serie"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="3" name="SubSerie"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="6" name="NumeroInicialOrdem"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="6" name="NumeroFinalOrdem"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="13" name="ValorTotal"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="13" name="BaseCalculoIcms"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="12" name="ValorIcms"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="13" name="IsentaNaoTributada"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="13" name="Outras"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="13" name="Aliquota"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" value=" " length="1" name="Branco"/>
+                </GroupOfFields>
+            </Record>
+
+            <Record name="Tipo61R" repeatable="true" >
+                <GroupOfFields>
+                    <IdType type="INTEGER" length="3" value="60R" name="TipoRegistro" position="1"/>
+					<Field padding="ZERO_LEFT" type="DATE" length="6" name="DataEmissao">
+						<Formatter type="DATE" format="MMyyyy" />
+					</Field>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="14" name="CodigoProduto"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="13" name="Quantidade"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="16" name="Valor"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="16" name="BaseCalculoIcms"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="4" name="Aliquota"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" value=" " length="54" name="Brancos"/>
+                </GroupOfFields>
+            </Record>
+
+			<Record name="Tipo75">
+				<GroupOfFields>
+					<IdType name="IDReg" value="75" length="2" position="1" />
+					<Field padding="ZERO_LEFT" type="DATE" length="8" name="DataInicial">
+						<Formatter type="DATE" format="yyyyMMdd" />
+					</Field>
+					<Field padding="ZERO_LEFT" type="DATE" length="8" name="DataFinal">
+						<Formatter type="DATE" format="yyyyMMdd" />
+					</Field>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="14" name="CodigoProduto"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="8" name="CodigoNcm"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="53" name="Descricao"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="6" name="Unidade"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="5" name="AliquotaIpi"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="4" name="AliquotaIcms"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="5" name="ReducaoBaseCalculoIcms"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="13" name="BaseCalculoIcmsSt"/>
+				</GroupOfFields>
+			</Record>
+			
+            <Record name="Tipo90" repeatable="true" >
+                <GroupOfFields>
+                    <IdType type="INTEGER" length="2" value="90" name="TipoRegistro" position="1"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="14" name="CNPJ"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="14" name="InscricaoEstadual"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="95" name="Totalizadores"/>
+					<!--
+					<Field padding="ZERO_LEFT" type="INTEGER" length="2" name="TipoTotalizado"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="8" name="TotalRegistros"/>
+					-->
+					<Field padding="ZERO_LEFT" type="INTEGER" length="1" name="TotalRegistrosTipo90"/>
+                </GroupOfFields>
+            </Record>
+        </GroupOfRecords>
+    </FlatFile>
+</ns2:Texgit>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!--
+        Define a profundidade máxima para a árvore "outer join" para
+        associações (one-to-one, many-to-one). O valor 0 desativa o outer join.
+        Valor recomendado: entre 0 e 3
+        -->
+        <property name="hibernate.max_fetch_depth">1</property>
+        <!-- Habilita a busca por "outer join" -->
+        <property name="hibernate.use_outer_join">true</property>
+        <!--
+        Número máximo de conexões JDBC - não deve ser utilizado em produção.
+        Será criado arquivo específico com as definições do Pool de conexões.
+        -->
+        <property name="connection.pool_size">10</property>
+        <!-- Dialeto SQL -->
+        <property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+        <!--
+        Gerenciamento automatico da sessão pelo Hibernate (session-per-request).
+        -->
+        <property name="current_session_context_class">thread</property>
+        <!-- Disable the second-level cache  -->
+        <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+        <property name="hibernate.cache.use_second_level_cache">false</property>
+        <property name="hibernate.cache.use_query_cache">false</property>
+        <!--<property name="hibernate.connection.isolation">2</property>-->
+        <!-- Mostra o código SQL no console -->
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+
+        <!-- classes mapeadas -->
+        <mapping class="com.t2tierp.cadastros.java.AlmoxarifadoVO"/>
+        <mapping class="com.t2tierp.cadastros.java.AtividadeForCliVO"/>
+        <mapping class="com.t2tierp.cadastros.java.CargoVO"/>
+        <mapping class="com.t2tierp.cadastros.java.ColaboradorVO"/>
+        <mapping class="com.t2tierp.cadastros.java.ContadorVO"/>
+        <mapping class="com.t2tierp.cadastros.java.CnaeVO"/>
+        <mapping class="com.t2tierp.cadastros.java.EmpresaCnaeVO"/>
+        <mapping class="com.t2tierp.cadastros.java.EmpresaContatoVO"/>
+        <mapping class="com.t2tierp.cadastros.java.EmpresaEnderecoVO"/>
+        <mapping class="com.t2tierp.cadastros.java.EmpresaPessoaVO"/>
+        <mapping class="com.t2tierp.cadastros.java.EmpresaProdutoVO"/>
+        <mapping class="com.t2tierp.cadastros.java.EmpresaTelefoneVO"/>
+        <mapping class="com.t2tierp.cadastros.java.EmpresaTransporteItinerarioVO"/>
+        <mapping class="com.t2tierp.cadastros.java.EmpresaTransporteVO"/>
+        <mapping class="com.t2tierp.cadastros.java.EmpresaVO"/>
+        <mapping class="com.t2tierp.cadastros.java.EstadoCivilVO"/>
+        <mapping class="com.t2tierp.cadastros.java.FornecedorVO"/>
+        <mapping class="com.t2tierp.cadastros.java.FpasVO"/>
+        <mapping class="com.t2tierp.cadastros.java.FuncaoVO"/>
+        <mapping class="com.t2tierp.cadastros.java.NivelFormacaoVO"/>
+        <mapping class="com.t2tierp.cadastros.java.PapelFuncaoVO"/>
+        <mapping class="com.t2tierp.cadastros.java.PapelVO"/>
+        <mapping class="com.t2tierp.cadastros.java.PessoaClienteVO"/>
+        <mapping class="com.t2tierp.cadastros.java.PessoaAlteracaoVO"/>
+        <mapping class="com.t2tierp.cadastros.java.PessoaContatoVO"/>
+        <mapping class="com.t2tierp.cadastros.java.PessoaEnderecoVO"/>
+        <mapping class="com.t2tierp.cadastros.java.PessoaFisicaVO"/>
+        <mapping class="com.t2tierp.cadastros.java.PessoaJuridicaVO"/>
+        <mapping class="com.t2tierp.cadastros.java.PessoaTelefoneVO"/>
+        <mapping class="com.t2tierp.cadastros.java.PessoaVO"/>
+        <mapping class="com.t2tierp.cadastros.java.ProdutoGrupoVO"/>
+        <mapping class="com.t2tierp.cadastros.java.ProdutoMarcaVO"/>
+        <mapping class="com.t2tierp.cadastros.java.ProdutoSubgrupoVO"/>
+        <mapping class="com.t2tierp.cadastros.java.ProdutoVO"/>
+        <mapping class="com.t2tierp.cadastros.java.SetorVO"/>
+        <mapping class="com.t2tierp.cadastros.java.SindicatoVO"/>
+        <mapping class="com.t2tierp.cadastros.java.SituacaoColaboradorVO"/>
+        <mapping class="com.t2tierp.cadastros.java.SituacaoForCliVO"/>
+        <mapping class="com.t2tierp.cadastros.java.TipoAdmissaoVO"/>
+        <mapping class="com.t2tierp.cadastros.java.TipoColaboradorVO"/>
+        <mapping class="com.t2tierp.cadastros.java.UnidadeProdutoVO"/>
+        <mapping class="com.t2tierp.cadastros.java.UsuarioVO"/>
+
+        <mapping class="com.t2tierp.geradoretiqueta.java.EtiquetaFormatoPapelVO"/>
+        <mapping class="com.t2tierp.geradoretiqueta.java.EtiquetaLayoutVO"/>
+        <mapping class="com.t2tierp.geradoretiqueta.java.EtiquetaTemplateVO"/>
+        
+        <mapping class="com.t2tierp.tributacao.java.TributGrupoTributarioVO"/>
+        <mapping class="com.t2tierp.tributacao.java.TributIcmsCustomCabVO"/>
+        <mapping class="com.t2tierp.tributacao.java.TributOperacaoFiscalVO"/>
+    </session-factory>
+</hibernate-configuration>

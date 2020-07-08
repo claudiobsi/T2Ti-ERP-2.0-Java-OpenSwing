@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:Texgit xmlns:ns2="http://gilmatryx.googlepages.com/Texgit">
+    <FlatFile>
+        <layout>
+            <name>Arquivo ACJEF</name>
+            <version>1</version>
+            <description>Layout de geração do arquivo ACJEF - Arquivo de Controle de Jornada para Efeitos Fiscais</description>
+        </layout>
+        <GroupOfRecords>
+            <Record name="Tipo1">
+                <GroupOfFields>
+                    <IdType length="1" value="1" name="TipoRegistro" position="2"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="9" name="NumeroSequencialRegistro"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="1" name="TipoIdentificadorEmpregador"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="14" name="CnpjCpfEmpreador"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="12" name="CeiEmpregador"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="150" name="RazaoSocialEmpregador"/>
+					<Field padding="ZERO_LEFT" type="DATE" length="8" name="DataInicial" format="DATE_DDMMYYYY" />
+					<Field padding="ZERO_LEFT" type="DATE" length="8" name="DataFinal" format="DATE_DDMMYYYY" />
+					<Field padding="ZERO_LEFT" type="DATE" length="8" name="DataGeracaoArquivo" format="DATE_DDMMYYYY" />
+					<Field padding="ZERO_LEFT" type="STRING" length="4" name="HoraGeracaoArquivo"/>
+                </GroupOfFields>
+            </Record>
+            <Record name="Tipo2" repeatable="true" >
+                <GroupOfFields>
+					<IdType length="1" value="2" name="TipoRegistro" position="2"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="9" name="NumeroSequencialRegistro"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="4" name="CodigoHorario"/>
+					<Field padding="ZERO_LEFT" type="STRING" length="4" name="HoraEntrada"/>
+					<Field padding="ZERO_LEFT" type="STRING" length="4" name="HoraSaida"/>
+					<Field padding="ZERO_LEFT" type="STRING" length="4" name="InicioIntervalo"/>
+					<Field padding="ZERO_LEFT" type="STRING" length="4" name="FimIntervalo"/>
+                </GroupOfFields>
+            </Record>
+            <Record name="Tipo3" repeatable="true" >
+                <GroupOfFields>
+					<IdType length="1" value="3" name="TipoRegistro" position="2"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="9" name="NumeroSequencialRegistro"/>
+					<Field padding="ZERO_LEFT" type="STRING" length="12" name="PisEmpregado"/>
+					<Field padding="ZERO_LEFT" type="DATE" length="8" name="DataInicioJornada" format="DATE_DDMMYYYY" />
+					<Field padding="ZERO_LEFT" type="STRING" length="4" name="PrimeiroHorarioEntrada"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="4" name="CodigoHorario"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="4" name="HorasDiurnasNaoExtraordinarias"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="4" name="HorasNoturnasNaoExtraordinarias"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="4" name="HorasExtras1"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="4" name="PercentualAdicionalHorasExtras1"/>
+					<Field type="STRING" length="1" name="ModalidadeHoraExtra1"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="4" name="HorasExtras2"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="4" name="PercentualAdicionalHorasExtras2"/>
+					<Field type="STRING" length="1" name="ModalidadeHoraExtra2"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="4" name="HorasExtras3"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="4" name="PercentualAdicionalHorasExtras3"/>
+					<Field type="STRING" length="1" name="ModalidadeHoraExtra3"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="4" name="HorasExtras4"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="4" name="PercentualAdicionalHorasExtras4"/>
+					<Field type="STRING" length="1" name="ModalidadeHoraExtra4"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="4" name="HorasFaltasAtrasos"/>
+					<Field type="INTEGER" length="1" name="SinalHorasCompensar"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="4" name="SaldoHorasCompensar"/>
+                </GroupOfFields>
+            </Record>
+            <Record name="Tipo9" >
+                <GroupOfFields>
+					<IdType length="1" value="9" name="TipoRegistro" position="2" />
+					<Field padding="ZERO_LEFT" type="LONG" length="9" name="NumeroSequencialRegistro" />
+                </GroupOfFields>
+            </Record>
+        </GroupOfRecords>
+    </FlatFile>
+</ns2:Texgit>

@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="nfse" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isFloatColumnFooter="true" uuid="8962a08b-d7b6-4a97-96a2-bfd982858818">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="NUMERO_NOTA" class="java.lang.String"/>
+	<parameter name="DATA_EMISSAO" class="java.util.Date"/>
+	<parameter name="COMPETENCIA" class="java.util.Date"/>
+	<parameter name="CODIGO_VERIFICACAO" class="java.lang.String"/>
+	<parameter name="PRESTADOR_RAZAO_SOCIAL" class="java.lang.String"/>
+	<parameter name="PRESTADOR_CNPJ" class="java.lang.String"/>
+	<parameter name="TOMADOR_RAZAO_SOCIAL" class="java.lang.String"/>
+	<parameter name="TOMADOR_CPF_CNPJ" class="java.lang.String"/>
+	<parameter name="LOGO_EMPRESA" class="java.awt.Image" isForPrompting="false"/>
+	<field name="nfseListaServico.descricao" class="java.lang.String"/>
+	<field name="valorServicos" class="java.math.BigDecimal"/>
+	<variable name="VALOR_TOTAL" class="java.math.BigDecimal" incrementType="Report" calculation="Sum">
+		<variableExpression><![CDATA[$F{valorServicos}]]></variableExpression>
+	</variable>
+	<title>
+		<band height="50" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="50" height="50" uuid="78f728f4-24a1-43b6-85ff-30255384940c"/>
+				<imageExpression><![CDATA[$P{LOGO_EMPRESA}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="50" y="0" width="505" height="21" uuid="8dd92b22-c569-4400-a4e3-36e31ba7e6f6"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NFS-e - NOTA FISCAL DE SERVIÇOS ELETRÔNICA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="50" y="21" width="505" height="29" uuid="60806257-1e44-434a-9bb8-099b62061cf9"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="200" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="20" width="174" height="20" uuid="562ab3a6-e3ae-47bf-b821-62ecca123b28"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{NUMERO_NOTA}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy HH.mm.ss" isBlankWhenNull="false">
+				<reportElement x="174" y="20" width="100" height="20" uuid="e13916e4-3fbc-404f-9ca0-814301e64f2f"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{DATA_EMISSAO}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement x="274" y="20" width="100" height="20" uuid="4c4ea699-1233-493d-8a64-635b44093d9e"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{COMPETENCIA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="374" y="20" width="181" height="20" uuid="19431da1-73f2-4eaf-907e-bae339515396"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{CODIGO_VERIFICACAO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="60" width="555" height="60" uuid="d1faa3e6-4d33-4c06-8c54-21cf687ca89d"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA["Razão Social: " + $P{PRESTADOR_RAZAO_SOCIAL} + "\n" +
+"CNPJ: " + $P{PRESTADOR_CNPJ}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="40" width="555" height="20" uuid="c44eac43-45e5-4d9d-b62a-79ed4add86c9"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PRESTADOR DE SERVIÇOS]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="140" width="555" height="60" uuid="a00e9762-800c-4f80-96e1-3f84a9ca6552"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA["Razão Social: " + $P{TOMADOR_RAZAO_SOCIAL} + "\n" +
+"CPF/CNPJ: " + $P{TOMADOR_CPF_CNPJ}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="120" width="555" height="20" uuid="155eb532-f8ef-4846-9e0e-e7f3612c015c"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOMADOR DOS SERVIÇOS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="174" height="20" uuid="ab7c5ec3-2b36-4b04-88a4-9efa390abeaa"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Número:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="174" y="0" width="100" height="20" uuid="0cc3fefc-d389-412b-a7b8-43dad3a72366"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Data Emissão:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="274" y="0" width="100" height="20" uuid="c92580c8-9b3b-4efc-838f-f0c982799e3f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Competência:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="374" y="0" width="181" height="20" uuid="cbcbd45c-fda9-486e-82e1-eb29df6977c8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Código de Verificação:]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="20" uuid="be505356-4dfe-4d54-80e5-8504c20a3ef2"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[DISCRIMINAÇÃO DOS SERVIÇOS]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="60" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="555" height="60" uuid="472c7a96-9fd0-46fb-86ae-89cf081b184e"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nfseListaServico.descricao}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="159" y="0" width="286" height="20" uuid="84d51e8f-5483-4e54-b2a8-a590658cf839"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Valor Total dos Serviços:  ]]></text>
+			</staticText>
+			<textField pattern="#,##0.00;-#,##0.00">
+				<reportElement x="445" y="0" width="110" height="20" uuid="51139508-ff6f-4974-b592-3f802792efbb"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{VALOR_TOTAL}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+</jasperReport>

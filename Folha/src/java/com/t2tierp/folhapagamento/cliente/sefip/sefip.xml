@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:Texgit xmlns:ns2="http://gilmatryx.googlepages.com/Texgit">
+    <FlatFile>
+        <layout>
+            <name>Arquivo SEFIP - Sistema Empresa de Recolhimento do FGTS e Informações à Previdência Social</name>
+            <version>1</version>
+            <description>Layout de geração do arquivo SEFIP</description>
+        </layout>
+        <GroupOfRecords>
+            <Record name="Tipo00">
+                <GroupOfFields>
+                    <IdType length="2" value="00" name="TipoRegistro" position="1"/>
+                    <Field padding="WHITE_SPACE_RIGHT" type="STRING" length="51" value=" " name="Brancos"/>
+                    <Field padding="ZERO_LEFT" type="INTEGER" length="1" value="1" name="TipoRemessa"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="1" value="1" name="TipoInscricao"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="14" name="InscricaoResponsavel"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="30" name="NomeResponsavel"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="20" name="NomePessoaContato"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="50" name="Logradouro"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="20" name="Bairro"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="8" name="Cep"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="20" name="Cidade"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="2" name="Uf"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="12" name="TelefoneContato"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="60" value=" " name="EnderecoInternet"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="6" name="Competencia"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="3" name="CodigoRecolhimento"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="1" name="IndicadorRecolhimentoFgts"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="3" name="ModalidadeArquivo"/>
+					<Field padding="ZERO_LEFT" type="DATE" length="8" name="DataRecolhimentoFgts" format="DATE_DDMMYYYY" />
+					<Field padding="ZERO_LEFT" type="INTEGER" length="1" name="IndicadorRecolhimentoPrevidencia"/>
+					<Field padding="ZERO_LEFT" type="DATE" length="8" name="DataRecolhimentoPrevidencia" format="DATE_DDMMYYYY" />
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="60" value=" " name="IndiceRecolhimentoAtrasoPrevidencia"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="1" name="TipoInscricaoFornecedor"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="14" name="InscricaoFornecedor"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="18" value=" " name="Brancos2"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="1" value="*" name="FinalLinha"/>
+                </GroupOfFields>
+            </Record>
+            <Record name="Tipo10">
+                <GroupOfFields>
+                    <IdType length="2" value="10" name="TipoRegistro" position="1"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="1" value="1" name="TipoInscricao"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="14" name="InscricaoEmpresa"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="36" value="0" name="Zeros"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="40" name="NomeEmpresa"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="50" name="Logradouro"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="20" name="Bairro"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="8" name="Cep"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="20" name="Cidade"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="2" name="Uf"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="12" name="Telefone"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="1" name="IndicadorAlteracaoEndereco"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="7" name="Cnae"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="1" name="IndicadorAlteracaoCnae"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="2" name="AliquotaRat"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="1" name="CodigoCentralizacao"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="1" name="Simples"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="3" name="Fpas"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="4" name="CodigoOutrasEntidades"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="4" name="CodigoPagamentoGps"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="5" name="PercentualIsencaoFilantropia"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="15" name="SalarioFamilia"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="15" name="SalarioMaternidade"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="15" value="0" name="ContribDescEmpregado"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="1" value="0" name="IndicadorPositivoNegativo"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="14" value="0" name="ValorDevidoPrevidencia"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="3" value=" " name="Banco"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="4" value=" " name="Agencia"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="9" value=" " name="ContaCorrente"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="45" value="0" name="Zeros2"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="4" value=" " name="Brancos"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="1" value="*" name="FinalLinha"/>
+                </GroupOfFields>
+            </Record>
+            <Record name="Tipo30" repeatable="true">
+                <GroupOfFields>
+                    <IdType length="2" value="30" name="TipoRegistro" position="1"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="1" value="1" name="TipoInscricaoEmpresa"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="14" name="InscricaoEmpresa"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="1" value="1" name="TipoInscricaoTomador"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="14" name="InscricaoTomador"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="11" name="PisPasep"/>
+					<Field padding="ZERO_LEFT" type="DATE" length="8" name="DataAmissao" format="DATE_DDMMYYYY" />
+					<Field padding="ZERO_LEFT" type="INTEGER" length="2" name="CategoriaTrabalhador"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="40" name="NomeTrabalhador"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="11" name="MatriculaEmpregado"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="7" name="NumeroCtps"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="5" name="SerieCtps"/>
+					<Field padding="ZERO_LEFT" type="DATE" length="8" name="DataOpcao" format="DATE_DDMMYYYY" />
+					<Field padding="ZERO_LEFT" type="DATE" length="8" name="DataNascimento" format="DATE_DDMMYYYY" />
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="5" name="Cbo"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="15" name="Remuneracao"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="15" name="Remuneracao13"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="2" name="ClasseContribuicao"/>
+					<Field padding="ZERO_LEFT" type="INTEGER" length="2" name="Ocorrencia"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="15" name="ValorDescontadoSegurado"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="15" name="RemuneracaoBaseCalculoPrevidencia"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="15" name="BaseCalculo13"/>
+					<Field padding="ZERO_LEFT" type="LONG" length="15" name="BaseCalculo13Previdencia"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="98" value=" " name="Brancos"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="1" value="*" name="FinalLinha"/>
+                </GroupOfFields>
+            </Record>
+            <Record name="Tipo90">
+                <GroupOfFields>
+                    <IdType length="2" value="90" name="TipoRegistro" position="1"/>
+					<Field type="STRING" length="51" value="999999999999999999999999999999999999999999999999999" name="FinalRegistro"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="306" value=" " name="Brancos"/>
+					<Field padding="WHITE_SPACE_RIGHT" type="STRING" length="1" value="*" name="FinalLinha"/>
+                </GroupOfFields>
+            </Record>
+        </GroupOfRecords>
+    </FlatFile>
+</ns2:Texgit>
